@@ -238,6 +238,36 @@ def gemeente_met_naam(gemeente, provincies):
     return b[0]['key'] if b else None
 
 
+_gemeenten_per_provincie = {}
+
+
+def gemeenten_in(provincies):
+    """De gemeenten (OWMS-URI's) die objecten hebben in een van de provincies."""
+    sleutel = tuple(provincies)
+    if sleutel not in _gemeenten_per_provincie:
+        r = es_zoek({'size': 0, 'query': {'terms': {CEO + 'heeftProvincie': list(provincies)}},
+                     'aggs': {'g': {'terms': {'field': CEO + 'heeftGemeente', 'size': 500}}}})
+        _gemeenten_per_provincie[sleutel] = {b['key'] for b in r['aggregations']['g']['buckets']}
+    return _gemeenten_per_provincie[sleutel]
+
+
+def landelijk(vraag, provincies, woonplaats=None, bron=None):
+    """Landelijk zoeken, maar de gemeente met de meeste objecten nemen die in een van de provincies ligt.
+
+    Veel archeologische objecten in rce/erfgoed hebben geen provincie (Bakhuizen: 13 objecten, geen provincie);
+    die vallen buiten een zoekactie binnen de provincie, maar hun gemeente ligt er wel.
+    """
+    r = es_zoek({'size': 0, 'query': vraag, 'aggs': {'g': {'terms': {'field': CEO + 'heeftGemeente', 'size': 20},
+                                                           'aggs': {'n': {'terms': {'field': CEO + 'gemeente.keyword', 'size': 1}}}}}})
+    binnen = gemeenten_in(provincies)
+    for b in r['aggregations']['g']['buckets']:
+        if b['key'] in binnen:
+            naam = b['n']['buckets'][0]['key'] if b['n']['buckets'] else None
+            return {'woonplaats': woonplaats, 'objecten': b['doc_count'] if woonplaats else 0, 'gemeenten': 1,
+                    'gemeenteUri': b['key'], 'gemeente': naam, **({'bron': bron} if bron else {})}
+    return None
+
+
 def woonplaats_info(namen, provincie_uri, cache, gemeente_in_boek=None):
     """Huidige gemeente van een kern, afgeleid uit de objecten in rce/erfgoed binnen dezelfde provincie.
 
@@ -264,20 +294,35 @@ def woonplaats_info(namen, provincie_uri, cache, gemeente_in_boek=None):
                 break
         if info is None or kandidaat['objecten'] > info['objecten']:
             info = kandidaat
-    # Anders landelijk, maar alleen als de naam in één gemeente voorkomt (Hengelo en Bergen niet).
+    provincies = [provincie_uri, *PROVINCIE_OOK.get(provincie_uri, [])]
+    # Anders landelijk: als de naam in één gemeente voorkomt, of de gemeente met de meeste objecten die in de
+    # provincie ligt (Bakhuizen → De Fryske Marren; de objecten daar hebben geen provincie).
     if not info['objecten']:
         for naam in [n for n in namen if n]:
-            landelijk = gemeente_van(naam)
-            if landelijk['objecten'] and landelijk['gemeenten'] == 1:
-                info = landelijk
+            alles = gemeente_van(naam)
+            if alles['objecten'] and alles['gemeenten'] == 1:
+                info = alles
                 break
-    # Gehuchten die geen woonplaats in de BAG zijn (Teckop, Blauwkapel): de gemeente uit de kop van het
-    # boek, als er nu nog een gemeente met die naam is.
-    if not info['objecten'] and gemeente_in_boek:
-        uri = gemeente_met_naam(gemeente_in_boek, [provincie_uri, *PROVINCIE_OOK.get(provincie_uri, [])])
-        if uri:
-            info = {'woonplaats': None, 'objecten': 0, 'gemeenten': 1, 'gemeenteUri': uri, 'gemeente': gemeente_in_boek,
-                    'bron': 'gemeente in het boek'}
+            if alles['objecten'] and (gevonden := landelijk({'term': {CEO + 'woonplaatsnaam.keyword': naam}}, provincies, woonplaats=naam)):
+                info = gevonden
+                break
+    # Gehuchten die geen woonplaats in de BAG zijn: de gemeente uit de kop van het boek, als er nu nog een
+    # gemeente met die naam is (Teckop, gemeente Woerden), of als er een woonplaats zo heet (Deldeneresch,
+    # gemeente Ambt Delden → woonplaats Ambt Delden → Hof van Twente). 'Almelo/Tubbergen': beide proberen.
+    if not info['gemeenteUri'] and gemeente_in_boek:
+        for gemeente in [g.strip() for g in gemeente_in_boek.split('/') if g.strip()]:
+            if uri := gemeente_met_naam(gemeente, provincies):
+                info = {'woonplaats': None, 'objecten': 0, 'gemeenten': 1, 'gemeenteUri': uri, 'gemeente': gemeente,
+                        'bron': 'gemeente in het boek'}
+                break
+            if gevonden := landelijk({'term': {CEO + 'woonplaatsnaam.keyword': gemeente}}, provincies, bron='woonplaats met de naam van de gemeente in het boek'):
+                info = gevonden
+                break
+    # Als laatste: objecten in rce/erfgoed waarin de plaatsnaam voorkomt (Paaslo → Steenwijkerland).
+    if not info['gemeenteUri']:
+        velden = [CEO + v for v in ('locatienaam', 'naam', 'omschrijving', 'volledigAdres')]
+        if gevonden := landelijk({'multi_match': {'query': namen[0], 'type': 'phrase', 'fields': velden}}, provincies, bron='plaatsnaam in rce/erfgoed'):
+            info = gevonden
     cache.data[sleutel] = info
     return info
 
