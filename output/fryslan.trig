@@ -6725,7 +6725,9 @@ De poldermolen bij Oast 1, gelegen ten oosten van Augustinusga, is een houten bo
             schema:CreativeWork ;
         rdfs:label "Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)"@nl ;
         min:deel "Monumenten in Nederland. Fryslân" ;
+        min:gemeente "De Fryske Marren" ;
         min:gemeenteInBoek "Gaasterlân-Sleat" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/De_Fryske_Marren> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Fryslan> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01> ;
@@ -6746,7 +6748,9 @@ De poldermolen bij Oast 1, gelegen ten oosten van Augustinusga, is een houten bo
         rdfs:label "Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)"@nl ;
         min:adres "St. Odulphusstraat 67" ;
         min:deel "Monumenten in Nederland. Fryslân" ;
+        min:gemeente "De Fryske Marren" ;
         min:gemeenteInBoek "Gaasterlân-Sleat" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/De_Fryske_Marren> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Fryslan> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01> ;
@@ -6766,7 +6770,9 @@ De poldermolen bij Oast 1, gelegen ten oosten van Augustinusga, is een houten bo
             schema:CreativeWork ;
         rdfs:label "Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)"@nl ;
         min:deel "Monumenten in Nederland. Fryslân" ;
+        min:gemeente "De Fryske Marren" ;
         min:gemeenteInBoek "Gaasterlân-Sleat" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/De_Fryske_Marren> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Fryslan> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01> ;
@@ -6786,7 +6792,9 @@ De poldermolen bij Oast 1, gelegen ten oosten van Augustinusga, is een houten bo
             schema:CreativeWork ;
         rdfs:label "Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat) – Woonhuizen"@nl ;
         min:deel "Monumenten in Nederland. Fryslân" ;
+        min:gemeente "De Fryske Marren" ;
         min:gemeenteInBoek "Gaasterlân-Sleat" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/De_Fryske_Marren> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Fryslan> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01> ;
@@ -6809,7 +6817,9 @@ De poldermolen bij Oast 1, gelegen ten oosten van Augustinusga, is een houten bo
         min:adres "Murnserdyk 24",
             "Wieldyk 9" ;
         min:deel "Monumenten in Nederland. Fryslân" ;
+        min:gemeente "De Fryske Marren" ;
         min:gemeenteInBoek "Gaasterlân-Sleat" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/De_Fryske_Marren> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Fryslan> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01> ;
@@ -57055,12 +57065,15 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
             schema:Chapter ;
         rdfs:label "Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)"@nl ;
         min:alternatieveNaam "Bakhuzen" ;
+        min:gemeente "De Fryske Marren" ;
         min:gemeenteInBoek "Gaasterlân-Sleat" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/De_Fryske_Marren> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Fryslan> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01> ;
         min:kern "Bakhuizen" ;
         min:provincie "Fryslân" ;
+        min:woonplaats "Bakhuizen" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu06_01/hoofdstuk/0008> ;
         schema:name "Bakhuizen (Bakhuzen) (gemeente Gaasterlân-Sleat)"@nl ;
         schema:position 18 ;

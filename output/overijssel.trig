@@ -8640,12 +8640,114 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
         min:adres "Twickelerlaan 1-3-5" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Deldeneresch" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70969>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70993>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70994>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70996>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70997>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70998>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70999>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71000>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71001>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71002>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71003>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71004>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71005>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71006>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71007>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71008>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71009>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71010>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71011>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71012>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71013>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71014>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71015>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71016>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71017>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71018>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71019>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71020>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71021>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71022>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71023>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71024>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71025>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71026>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71027>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71028>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71029>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71030>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71031>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71032>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71033>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71034>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71035>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71036>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71037>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71038>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71039>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71040>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71041>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71042> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507544",
+            "507546",
+            "507548",
+            "507549",
+            "507550",
+            "507551",
+            "507552",
+            "507554",
+            "507555",
+            "507556",
+            "507557",
+            "507558",
+            "507559",
+            "507560",
+            "507561",
+            "507562",
+            "507563",
+            "507564",
+            "507565",
+            "507566",
+            "507567",
+            "507568",
+            "507569",
+            "507570",
+            "507571",
+            "507572",
+            "507573",
+            "507574",
+            "507575",
+            "507576",
+            "507577",
+            "507578",
+            "507579",
+            "507580",
+            "507581",
+            "507583",
+            "507585",
+            "507586",
+            "507587",
+            "507588",
+            "507590",
+            "507591",
+            "507592",
+            "507593",
+            "507595",
+            "507596",
+            "507598",
+            "507601",
+            "507602",
+            "526436" ;
         min:soort "inleiding" ;
         min:volgnummer 357 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/afbeelding/sten009monu03ill113>,
@@ -8662,7 +8764,9 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
             schema:CreativeWork ;
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -8682,7 +8786,9 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
             schema:CreativeWork ;
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -8702,7 +8808,9 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
             schema:CreativeWork ;
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -8722,7 +8830,9 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
             schema:CreativeWork ;
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -8744,12 +8854,20 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
         min:adres "Twickelerlaan 6" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Deldeneresch" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70974>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70975>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70976> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507802",
+            "507803",
+            "507804" ;
         min:soort "inleiding" ;
         min:volgnummer 362 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0028> ;
@@ -8767,12 +8885,18 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
             "Bornsevoetpad 2-4",
             "Twickelerlaan 11" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Deldeneresch" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70973>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70989> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507618",
+            "507810" ;
         min:soort "inleiding" ;
         min:volgnummer 363 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/afbeelding/sten009monu03ill116> ;
@@ -8791,13 +8915,21 @@ De landweer (Oelerweg ong.), gelegen ten zuiden van Delden, is het restant van e
             "Noordmolen 5",
             "Seppewooldsweg 3" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Deldeneresch" ;
         min:lemma "Boerderijen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70987>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70990>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/71048> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507616",
+            "507621",
+            "7551" ;
         min:soort "lemma" ;
         min:volgnummer 364 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0028> ;
@@ -8820,13 +8952,27 @@ De Noordmolen (Noordmolen 5) is een aan de Oelerbeek gelegen oliewaterradmolen, 
             "Oude Veenweg 1",
             "Schievenweg 3" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Deldeneresch" ;
         min:lemma "Azelo" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/10444>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/30430>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70032>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70033>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70977>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/70978> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507796",
+            "507797",
+            "507799",
+            "507800",
+            "507809",
+            "7552" ;
         min:soort "lemma" ;
         min:volgnummer 365 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0028> ;
@@ -8845,13 +8991,27 @@ De Noordmolen (Noordmolen 5) is een aan de Oelerbeek gelegen oliewaterradmolen, 
             "Almelosestraat 16",
             "Grote Looweg 4" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Deldeneresch" ;
         min:lemma "Deldenerbroek" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/23716>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/68336>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/68337>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/77950>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/77951>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/77952> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "473319",
+            "473320",
+            "473321",
+            "507790",
+            "507791",
+            "7554" ;
         min:soort "lemma" ;
         min:volgnummer 366 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/afbeelding/sten009monu03ill117> ;
@@ -20171,7 +20331,9 @@ De watertoren (Dedemsvaartseweg Noord 66) is een in 1932 in opdracht van de Wate
             schema:CreativeWork ;
         rdfs:label "Mariaparochie (gemeente Almelo/Tubbergen)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Almelo" ;
         min:gemeenteInBoek "Almelo/Tubbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Almelo> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Mariaparochie (gemeente Almelo/Tubbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -20193,7 +20355,9 @@ De watertoren (Dedemsvaartseweg Noord 66) is een in 1932 in opdracht van de Wate
         min:adres "Ootmarsumsestraat 494",
             "Ootmarsumsestraat 496" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Almelo" ;
         min:gemeenteInBoek "Almelo/Tubbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Almelo> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Mariaparochie (gemeente Almelo/Tubbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -20214,7 +20378,9 @@ De watertoren (Dedemsvaartseweg Noord 66) is een in 1932 in opdracht van de Wate
         rdfs:label "Mariaparochie (gemeente Almelo/Tubbergen)"@nl ;
         min:adres "Almeloseweg 203" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Almelo" ;
         min:gemeenteInBoek "Almelo/Tubbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Almelo> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Mariaparochie (gemeente Almelo/Tubbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -20235,7 +20401,9 @@ De watertoren (Dedemsvaartseweg Noord 66) is een in 1932 in opdracht van de Wate
         rdfs:label "Mariaparochie (gemeente Almelo/Tubbergen) – Boerderijen"@nl ;
         min:adres "Almeloseweg 181" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Almelo" ;
         min:gemeenteInBoek "Almelo/Tubbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Almelo> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Mariaparochie (gemeente Almelo/Tubbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -21043,7 +21211,9 @@ Inwendig bevindt zich de indrukwekkende hoge torenkamer, aan vier zijden voorzie
             schema:CreativeWork ;
         rdfs:label "Noord Deurningen (gemeente Denekamp)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Dinkelland" ;
         min:gemeenteInBoek "Denekamp" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Dinkelland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Noord Deurningen (gemeente Denekamp)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -21064,12 +21234,16 @@ Inwendig bevindt zich de indrukwekkende hoge torenkamer, aan vier zijden voorzie
         rdfs:label "Noord Deurningen (gemeente Denekamp)"@nl ;
         min:adres "Gravenallee 30" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Dinkelland" ;
         min:gemeenteInBoek "Denekamp" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Dinkelland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Noord Deurningen (gemeente Denekamp)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Noord Deurningen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/27864> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "12334" ;
         min:soort "inleiding" ;
         min:volgnummer 791 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0074> ;
@@ -21085,13 +21259,17 @@ Inwendig bevindt zich de indrukwekkende hoge torenkamer, aan vier zijden voorzie
         rdfs:label "Noord Deurningen (gemeente Denekamp) – Boerderijen"@nl ;
         min:adres "Nordhornsestraat 236" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Dinkelland" ;
         min:gemeenteInBoek "Denekamp" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Dinkelland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Noord Deurningen (gemeente Denekamp)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Noord Deurningen" ;
         min:lemma "Boerderijen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/28620> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "508952" ;
         min:soort "lemma" ;
         min:volgnummer 792 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0074> ;
@@ -23284,7 +23462,9 @@ De watertoren (bij Almelosestraat 65) kwam in 1934 tot stand in opdracht van de 
             schema:CreativeWork ;
         rdfs:label "Paaslo (gemeente IJsselham)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -23305,12 +23485,18 @@ De watertoren (bij Almelosestraat 65) kwam in 1934 tot stand in opdracht van de 
         rdfs:label "Paaslo (gemeente IJsselham)"@nl ;
         min:adres "Binnenweg 2" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Paaslo" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/52249>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/59617> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "39905",
+            "506467" ;
         min:soort "inleiding" ;
         min:volgnummer 877 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/afbeelding/sten009monu03ill340> ;
@@ -23327,12 +23513,16 @@ De watertoren (bij Almelosestraat 65) kwam in 1934 tot stand in opdracht van de 
         rdfs:label "Paaslo (gemeente IJsselham)"@nl ;
         min:adres "Spinnerslaan 17" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Paaslo" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/55125> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "506465" ;
         min:soort "inleiding" ;
         min:volgnummer 878 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0084> ;
@@ -23348,12 +23538,16 @@ De watertoren (bij Almelosestraat 65) kwam in 1934 tot stand in opdracht van de 
         rdfs:label "Paaslo (gemeente IJsselham)"@nl ;
         min:adres "Paasloregel 77" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Paaslo" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/13896> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "508642" ;
         min:soort "inleiding" ;
         min:volgnummer 879 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/afbeelding/sten009monu03ill341> ;
@@ -37130,7 +37324,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Deldeneresch, Huis Twickel"@nl ;
         min:beeldcode "delde003" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -37145,7 +37341,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Deldeneresch, Huis Twickel, plattegrond begane grond"@nl ;
         min:beeldcode "delde003" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -37160,7 +37358,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Deldeneresch, Huis Twickel (1986)"@nl ;
         min:beeldcode "delde003" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -37175,7 +37375,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Deldeneresch, Huis Twickel, boerderij annex jachthuis Wanink (1985)"@nl ;
         min:beeldcode "delde003" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -37190,7 +37392,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Deldenerbroek bij Deldeneresch, modelboerderij Perseverance (1988)"@nl ;
         min:beeldcode "delde003" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -41165,7 +41369,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Paaslo, Herv. kerk, interieur"@nl ;
         min:beeldcode "paasl001" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -41180,7 +41386,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Paaslo, Vervenershuisje Spinnerslaan 17"@nl ;
         min:beeldcode "paasl001" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -44193,7 +44401,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0074> a min:Kern,
             schema:Chapter ;
         rdfs:label "Noord Deurningen (gemeente Denekamp)"@nl ;
+        min:gemeente "Dinkelland" ;
         min:gemeenteInBoek "Denekamp" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Dinkelland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Noord Deurningen (gemeente Denekamp)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -44464,7 +44674,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0068> a min:Kern,
             schema:Chapter ;
         rdfs:label "Mariaparochie (gemeente Almelo/Tubbergen)"@nl ;
+        min:gemeente "Almelo" ;
         min:gemeenteInBoek "Almelo/Tubbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Almelo> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Mariaparochie (gemeente Almelo/Tubbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -45023,7 +45235,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0084> a min:Kern,
             schema:Chapter ;
         rdfs:label "Paaslo (gemeente IJsselham)"@nl ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "IJsselham" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Paaslo (gemeente IJsselham)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -46035,7 +46249,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0028> a min:Kern,
             schema:Chapter ;
         rdfs:label "Deldeneresch (gemeente Ambt Delden)"@nl ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Deldeneresch (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;

@@ -361,14 +361,18 @@ TriG.
   5. provincies uit `PROVINCIE_OOK` (Vijfheerenlanden: sinds 2019 Utrecht).
      Bij twijfel wint de provincie met de meeste objecten, zodat een paar
      verouderde objecten met gemeente Zederik niet winnen;
-  6. landelijk, maar alleen als de naam in één gemeente voorkomt;
+  6. landelijk: als de naam in één gemeente voorkomt, of anders de gemeente
+     met de meeste objecten die in de provincie ligt. Veel archeologische
+     objecten hebben geen provincie; Bakhuizen → De Fryske Marren;
   7. de gemeente uit de kop, als er nog een gemeente met die naam is
-     (gehuchten als Teckop, gemeente Woerden).
+     (Teckop, gemeente Woerden; 'Almelo/Tubbergen' → Almelo), of als er een
+     woonplaats zo heet (Deldeneresch, gemeente Ambt Delden → Hof van Twente;
+     Paaslo, gemeente IJsselham → Steenwijkerland);
+  8. de plaatsnaam in de tekst van objecten in `rce/erfgoed`, met een
+     gemeente in de provincie.
 
-  Afwijkende namen staan in `WOONPLAATS_ALIAS`. Zonder huidige gemeente
-  blijven Bakhuizen (Fryslân) en vier gehuchten in Overijssel waarvan de
-  gemeente uit het boek niet meer bestaat (Deldeneresch, Mariaparochie,
-  Noord Deurningen, Paaslo).
+  Afwijkende namen staan in `WOONPLAATS_ALIAS`. Alle 1.590 plaatsen hebben
+  een huidige gemeente.
 - Tussen de kernen staan soms divs zonder kop: een alinea van de vorige plaats
   plus de volgende plaats. Die alinea hoort bij de vorige plaats; loopt een
   lemma door, dan hoort ze bij dat lemma. Achter in Gelderland staat zo'n div
