@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monumenten in Nederland</title>
+  <meta name="description" content="Zoek en lees in de serie Monumenten in Nederland (RDMZ/Waanders, 1996–2006) als linked data van de RCE: per provincie, per plaats, per monument.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://monumenten-in-nederland.jolietjakeblues64.workers.dev/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://monumenten-in-nederland.jolietjakeblues64.workers.dev/">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:title" content="Monumenten in Nederland">
+  <meta property="og:description" content="Zoek en lees in de serie Monumenten in Nederland als linked data van de RCE.">
+  <link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#query">Direct naar zoeken</a>
+  <header class="site-header">
+    <div class="brand"><p><strong>Monumenten in Nederland</strong><br>Technische demonstrator op open data van de RCE</p></div>
+    <nav class="bar" aria-label="Kruimelpad"><div class="wrap"><ol class="crumbs" id="crumbs"><li><a href="./">Demo</a></li><li aria-current="page">Zoeken en lezen</li></ol></div></nav>
+  </header>
+  <main>
+  <div class="search-band"><div class="wrap">
+    <h1>Zoeken en lezen in Monumenten in Nederland</h1>
+    <p class="intro">De provinciedelen van de serie <em>Monumenten in Nederland</em> (Rijksdienst voor de Monumentenzorg en Waanders, 1996–2006) als linked data: elk hoofdstuk, elke plaats en elk monument apart vindbaar, met de afbeeldingen uit het boek en links naar de rijksmonumenten die erin genoemd worden. <button type="button" class="link-button" data-help="wat">Wat zit erin?</button></p>
+    <form id="search-form" class="search-panel">
+      <div class="query-input"><label for="query">Jouw zoekvraag</label><input id="query" name="query" type="search" maxlength="500" placeholder="Bijvoorbeeld: molen, Cuypers of kasteel AND gracht" aria-describedby="syntax"></div>
+      <div><label for="field">Zoek in</label><select id="field" name="field"></select></div>
+      <div class="actions"><button type="submit" class="primary">Zoek</button><button type="button" id="reset" title="Wis zoekvraag, filters en resultaten">Opnieuw beginnen</button></div>
+      <p id="syntax" class="hint">Combineer met AND, OR, NOT (in hoofdletters) en haakjes. Gebruik quotes voor een exacte woordcombinatie. <button type="button" id="help-open" class="link-button">Zoekhulp</button></p>
+      <div class="examples"><span>Probeer:</span>
+        <button type="button" data-example="molen">molen</button>
+        <button type="button" data-example="kasteel AND gracht">kasteel AND gracht</button>
+        <button type="button" data-example="Cuypers">Cuypers</button>
+        <button type="button" data-example="hofje" data-tekstsoort="lemma">hofjes</button>
+        <button type="button" data-example="Oude Delft" data-veld="Adres">adres Oude Delft</button>
+        <button type="button" data-example="watersnoodramp">watersnoodramp</button>
+        <button type="button" data-lees="sten009monu10_01/0030">Lees: Delft</button>
+        <button type="button" data-lees="sten009monu10_01/0196">Lees: verklaring van termen</button>
+      </div>
+    </form>
+  </div></div>
+  <div class="wrap">
+    <div id="status" role="status" aria-live="polite">Vul een zoekvraag in, kies een voorbeeld of begin met lezen.</div>
+    <p id="explain" class="explain" hidden></p>
+    <div id="error" role="alert" hidden></div>
+
+    <section id="landing" aria-labelledby="landing-heading">
+      <h2 id="landing-heading">De delen</h2>
+      <p class="hint">Twaalf delen, één per provincie.</p>
+      <div id="delen" class="delen"><p class="muted">Delen laden…</p></div>
+    </section>
+
+    <div class="workspace" id="workspace" hidden>
+      <aside aria-label="Filters"><h2>Filters</h2><p class="hint">Vink meerdere waarden aan: binnen een filter geldt <em>of</em>, tussen filters <em>en</em>.</p>
+        <div id="facets"><p class="muted">Na het zoeken verschijnen hier de beschikbare filters.</p></div>
+      </aside>
+      <section id="results-panel" aria-labelledby="results-heading"><div class="results-title"><h2 id="results-heading">Resultaten</h2><span id="page-info"></span></div>
+        <div class="toolbar"><label for="sort">Sorteer op</label><select id="sort"></select><button type="button" id="share">Kopieer link</button></div>
+        <div id="active-filters"></div><div id="results"></div>
+        <nav id="pagination" aria-label="Resultaatpagina’s" hidden><button id="previous" type="button">Vorige</button><span id="page-number"></span><button id="next" type="button">Volgende</button></nav></section>
+    </div>
+
+    <div class="lezen" id="lezen" hidden>
+      <aside class="toc" aria-labelledby="toc-heading">
+        <h2 id="toc-heading">Inhoud</h2>
+        <label for="toc-filter" class="sr-only">Zoek een plaats in de inhoud</label>
+        <input id="toc-filter" type="search" placeholder="Zoek een plaats" autocomplete="off">
+        <nav id="toc" aria-label="Inhoudsopgave"></nav>
+      </aside>
+      <article id="hoofdstuk" class="hoofdstuk" aria-live="polite"></article>
+    </div>
+
+    <details class="technical"><summary>Toon Elasticsearch-query</summary><h2>In gewone taal</h2><ul id="query-explain"><li>Er is nog geen zoekactie uitgevoerd.</li></ul><h2>JSON</h2><p>De laatste request naar de Elasticsearch-service <code>monumenten-in-nederland</code>.</p><pre id="query-json">Er is nog geen zoekactie uitgevoerd.</pre></details>
+
+  <dialog id="help" aria-labelledby="help-title">
+    <div class="help-head"><h2 id="help-title">Zoekhulp</h2><button type="button" id="help-close" aria-label="Sluit zoekhulp">×</button></div>
+    <h3 id="help-wat">Wat zit erin?</h3>
+    <p>Per deel (provincie) staan in de index:</p>
+    <table>
+      <thead><tr><th>Soort</th><th>Wat</th></tr></thead>
+      <tbody>
+        <tr><td>Tekst</td><td>De tekst van het boek in stukken: een <strong>lemma</strong> is de beschrijving van één monument of groep (bijvoorbeeld <em>Herv. kerk</em> of <em>Woonhuizen</em>), met de alinea’s die erbij horen. Verder de <strong>inleiding</strong> van elke plaats, de <strong>alinea’s</strong> van de inleidende hoofdstukken (Historie, Stijl, Materiaal, Regio’s) en de <strong>literatuur</strong>.</td></tr>
+        <tr><td>Hoofdstuk</td><td>Hoofdstukken, secties en plaatsen, met een link naar de pagina op DBNL.</td></tr>
+        <tr><td>Afbeelding</td><td>Foto’s, plattegronden en tekeningen uit het boek, met hun bijschrift.</td></tr>
+        <tr><td>Term</td><td>De verklarende woordenlijst achter in het boek.</td></tr>
+      </tbody>
+    </table>
+    <p>Adressen in de tekst zijn, waar dat lukte, gekoppeld aan het rijksmonument op dat adres. Die rijksmonumenten staan bij het resultaat en zijn ook doorzoekbaar op nummer (<strong>Zoek in: Rijksmonumentnummer</strong>).</p>
+    <p><strong>Plaats in het boek</strong> is de plaats zoals het boek die indeelt, met de gemeente uit het jaar van uitgave. <strong>Gemeente (nu)</strong> is de huidige gemeente.</p>
+    <h3>Nederlandse taal</h3>
+    <ul>
+      <li><strong>Meervoud</strong> wordt herkend: <button type="button" data-example="boerderijen">boerderijen</button> vindt ook boerderij.</li>
+      <li><strong>Samenstellingen</strong>: <button type="button" data-example="molen">molen</button> vindt ook windmolen en poldermolen, <button type="button" data-example="kapel">kapel</button> ook grafkapel (maar geen dakkapel).</li>
+      <li><strong>Synoniemen</strong>: <button type="button" data-example="kerk">kerk</button> vindt ook dorpskerk en parochiekerk.</li>
+      <li>Wil je dat niet, kies dan bij <strong>Zoek in</strong> de optie <strong>Exact</strong>.</li>
+    </ul>
+    <h3>Combineren</h3>
+    <table>
+      <thead><tr><th>Syntax</th><th>Betekenis</th><th>Voorbeeld</th></tr></thead>
+      <tbody>
+        <tr><td><code>AND</code></td><td>beide woorden moeten voorkomen</td><td><button type="button" data-example="kasteel AND gracht">kasteel AND gracht</button></td></tr>
+        <tr><td><code>OR</code></td><td>minimaal één van de woorden</td><td><button type="button" data-example="hofje OR gasthuis">hofje OR gasthuis</button></td></tr>
+        <tr><td><code>NOT</code></td><td>sluit een woord uit</td><td><button type="button" data-example="molen AND NOT watermolen">molen AND NOT watermolen</button></td></tr>
+        <tr><td><code>"…"</code></td><td>exacte woordcombinatie</td><td><button type="button" data-example='"Tweede Wereldoorlog"'>"Tweede Wereldoorlog"</button></td></tr>
+        <tr><td><code>*</code></td><td>willekeurig vervolg</td><td><button type="button" data-example="Cuyper*">Cuyper*</button></td></tr>
+      </tbody>
+    </table>
+    <h3>Goed om te weten</h3>
+    <ul>
+      <li><strong>Operatoren in hoofdletters.</strong> <code>and</code> en <code>of</code> zijn gewone zoekwoorden.</li>
+      <li><strong>Zonder operator betekent een spatie OR.</strong></li>
+      <li>Getallen tussen vierkante haken, zoals [11], staan zo in het boek. Ze verwijzen naar de nummers op de stadsplattegronden.</li>
+      <li>De tekst is de digitale editie van DBNL (2010). Bij elk resultaat staat een link naar de pagina daar.</li>
+    </ul>
+  </dialog>
+  </div>
+  </main>
+  <footer class="site-footer"><div class="bar"><div class="wrap"><p><strong>Dit is een demo.</strong> Bouw hier geen applicaties of andere afhankelijkheden op. De scripts, index en service kunnen zonder aankondiging wijzigen of verdwijnen.</p></div></div>
+    <div class="wrap"><p>Tekst en afbeeldingen: <em>Monumenten in Nederland</em>, Rijksdienst voor de Monumentenzorg / Waanders Uitgevers, 1996–2006, in de digitale editie van de <a href="https://www.dbnl.org/" target="_blank" rel="noopener noreferrer">DBNL</a>. Data: de dataset <a href="https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland" target="_blank" rel="noopener noreferrer">rce/monumenten-in-nederland</a> van de Rijksdienst voor het Cultureel Erfgoed. Gekoppelde rijksmonumenten komen uit <a href="https://linkeddata.cultureelerfgoed.nl/rce/erfgoed" target="_blank" rel="noopener noreferrer">rce/erfgoed</a>; deze demo is geen vervanging van het <a href="https://monumentenregister.cultureelerfgoed.nl/" target="_blank" rel="noopener noreferrer">Rijksmonumentenregister</a>.</p></div></footer>
+</body>
+</html>

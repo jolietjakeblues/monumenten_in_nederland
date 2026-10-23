@@ -1,0 +1,20 @@
+# Editor/IDE config
+.claude/
+
+# Bronbestanden van DBNL (sten009monuNN_01.xml): niet in git, op te halen bij DBNL (zie README)
+/data/bron/
+
+# Antwoorden van Elastic en DBNL-inhoudsopgaven; worden bij een run opnieuw opgehaald
+/data/cache/
+
+# Build-output en tooling
+.wrangler/
+node_modules/
+__pycache__/
+*.pyc
+
+# Geheimen (Wrangler, tokens)
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

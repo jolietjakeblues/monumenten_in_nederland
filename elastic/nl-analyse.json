@@ -1,0 +1,233 @@
+{
+  "filter": {
+    "nl_stop": {
+      "type": "stop",
+      "stopwords": "_dutch_"
+    },
+    "nl_stam": {
+      "type": "stemmer",
+      "language": "dutch_kp"
+    },
+    "nl_meervoud": {
+      "type": "stemmer_override",
+      "rules": [
+        "molen, molens => molen",
+        "toren, torens => toren",
+        "kasteel, kastelen => kasteel",
+        "gracht, grachten => gracht",
+        "sluis, sluizen => sluis",
+        "dijk, dijken => dijk",
+        "woning, woningen => woning",
+        "paalgat, paalgaten => paalgat",
+        "paalspoor, paalsporen => paalspoor",
+        "graf, graven => graf",
+        "crematiegraf, crematiegraven => crematiegraf",
+        "inhumatiegraf, inhumatiegraven => inhumatiegraf",
+        "vlakgraf, vlakgraven => vlakgraf",
+        "familiegraf, familiegraven => familiegraf",
+        "kindergraf, kindergraven => kindergraf",
+        "diergraf, diergraven => diergraf",
+        "dierengraf, dierengraven => dierengraf",
+        "urnenveld, urnenvelden => urnenveld",
+        "grafveld, grafvelden => grafveld"
+      ]
+    },
+    "nl_samenstellingen": {
+      "type": "dictionary_decompounder",
+      "only_longest_match": true,
+      "min_subword_size": 4,
+      "word_list": [
+        "molen",
+        "toren",
+        "boerderij",
+        "schuur",
+        "woning",
+        "brug",
+        "sluis",
+        "gemaal",
+        "poort",
+        "gracht",
+        "kasteel",
+        "fort",
+        "school",
+        "pakhuis",
+        "kapel",
+        "klooster",
+        "gasthuis",
+        "hofje",
+        "villa",
+        "station",
+        "fabriek",
+        "watertoren",
+        "vuurtoren",
+        "begraafplaats",
+        "grafheuvel",
+        "wierde",
+        "bastion",
+        "kazerne",
+        "orgel",
+        "luidklok",
+        "uurwerk",
+        "kuil",
+        "greppel",
+        "aardewerk",
+        "keramiek",
+        "haard",
+        "schrabber"
+      ]
+    },
+    "erfgoed_synoniemen": {
+      "type": "synonym_graph",
+      "synonyms": [
+        "kerk, godshuis => kerk, godshuis, kerkgebouw, parochiekerk, dorpskerk, kruiskerk, zaalkerk, hallenkerk, schuilkerk, kerktoren",
+        "dijk => dijk, liniedijk, lekdijk, zeedijk, maasdijk, waaldijk, rivierdijk, kanaaldijk, ijsseldijk, lingedijk, grebbeliniedijk, spoordijk",
+        "begraafplaats, kerkhof, dodenakker",
+        "boerderij, hoeve",
+        "kasteel, burcht",
+        "pastorie, predikantswoning",
+        "woonhuis, woning",
+        "terp, terpen, wierde, wierden => terp, wierde, huisterp, dorpsterp, kerkterp, woonterp, veenterp, hoogterp, kernterp, terpje, terpdorp, terprest, terprestant, terplaag, terpzool, terplichaam, terpaardewerk, terpenaardewerk, terpboerderij, terpbebouwing, terpvorming, terpafgraving, huiswierde, dorpswierde, kerkwierde, wierdelaag, wierdezool, wierdelichaam, wierdedorp, wierdebebouwing, wierdekerkhof",
+        "vesting, vestingwerk",
+        "keramiek => keramiek, aardewerk, steengoed, porselein, faience, fayence",
+        "hunebed, megalietgraf",
+        "graf => graf, grafheuvel, grafmonument, grafveld, crematiegraf, inhumatiegraf, mensengraf, diergraf, dierengraf, familiegraf, kindergraf, vlakgraf, massagraf, urnengraf, megalietgraf, grafkapel, grafkelder, grafkuil, grafkist, grafsteen, grafzerk, grafteken, grafkruis, grafcultuur",
+        "paal, palen => paal, paalkuil, paalgat, paalspoor, paalkrans, paalrij, palenrij, paalfundering, paalkern, grenspaal, trappaal, stoeppaal, dijkpaal, mijlpaal, nummerpaal, heipaal, hoekpaal, lantaarnpaal, gerechtspaal, galgpaal"
+      ]
+    }
+  },
+  "analyzer": {
+    "nl_index": {
+      "type": "custom",
+      "char_filter": [
+        "punt_tussen_letters",
+        "dubbele_punt",
+        "geen_dakkapel",
+        "geen_kapelaan",
+        "geen_kapelle",
+        "geen_kuile",
+        "geen_kuilenburg",
+        "geen_haardijk"
+      ],
+      "tokenizer": "standard",
+      "filter": [
+        "lowercase",
+        "asciifolding",
+        "nl_meervoud",
+        "nl_samenstellingen",
+        "nl_meervoud",
+        "nl_stop",
+        "nl_stam"
+      ]
+    },
+    "nl_zoeken": {
+      "type": "custom",
+      "char_filter": [
+        "punt_tussen_letters",
+        "dubbele_punt",
+        "geen_dakkapel",
+        "geen_kapelaan",
+        "geen_kapelle",
+        "geen_kuile",
+        "geen_kuilenburg",
+        "geen_haardijk"
+      ],
+      "tokenizer": "standard",
+      "filter": [
+        "lowercase",
+        "asciifolding",
+        "nl_meervoud",
+        "erfgoed_synoniemen",
+        "nl_stop",
+        "nl_stam"
+      ]
+    },
+    "nl_exact": {
+      "type": "custom",
+      "char_filter": [
+        "punt_tussen_letters",
+        "dubbele_punt"
+      ],
+      "tokenizer": "standard",
+      "filter": [
+        "lowercase",
+        "asciifolding"
+      ]
+    }
+  },
+  "char_filter": {
+    "punt_tussen_letters": {
+      "type": "pattern_replace",
+      "pattern": "(?<=\\p{L})\\.(?=\\p{L})",
+      "replacement": " "
+    },
+    "dubbele_punt": {
+      "type": "pattern_replace",
+      "pattern": ":",
+      "replacement": " "
+    },
+    "geen_dakkapel": {
+      "type": "pattern_replace",
+      "pattern": "dakkapel",
+      "replacement": "dakcapel",
+      "flags": "CASE_INSENSITIVE"
+    },
+    "geen_kapelaan": {
+      "type": "pattern_replace",
+      "pattern": "kapela",
+      "replacement": "capela",
+      "flags": "CASE_INSENSITIVE"
+    },
+    "geen_kapelle": {
+      "type": "pattern_replace",
+      "pattern": "kapelle(?![nt])",
+      "replacement": "capelle",
+      "flags": "CASE_INSENSITIVE"
+    },
+    "soort_uit_uri": {
+      "type": "pattern_replace",
+      "pattern": "^.*/id/([a-z]+)/.*$",
+      "replacement": "$1"
+    },
+    "geen_functiecode": {
+      "type": "pattern_replace",
+      "pattern": "\\s*\\((?:[A-Z]{1,2}[0-9]{0,2}|T[A-Z]{2}[0-9]?)\\)\\s*$",
+      "replacement": ""
+    },
+    "geen_kuile": {
+      "type": "pattern_replace",
+      "pattern": "kuile(?!n)",
+      "replacement": "cuile",
+      "flags": "CASE_INSENSITIVE"
+    },
+    "geen_kuilenburg": {
+      "type": "pattern_replace",
+      "pattern": "kuil(?=enburg)|(?<=ker)kuil",
+      "replacement": "cuil",
+      "flags": "CASE_INSENSITIVE"
+    },
+    "geen_haardijk": {
+      "type": "pattern_replace",
+      "pattern": "haard(?=ijk)|(?<=sc)haard",
+      "replacement": "haerd",
+      "flags": "CASE_INSENSITIVE"
+    }
+  },
+  "normalizer": {
+    "soort": {
+      "type": "custom",
+      "char_filter": [
+        "soort_uit_uri"
+      ],
+      "filter": [
+        "lowercase"
+      ]
+    },
+    "zonder_functiecode": {
+      "type": "custom",
+      "char_filter": [
+        "geen_functiecode"
+      ],
+      "filter": []
+    }
+  }
+}

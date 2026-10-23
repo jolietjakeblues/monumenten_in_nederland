@@ -1,0 +1,11 @@
+// Cloudflare Worker die alleen de statische bestanden uit web/ serveert (geen Worker-script), zoals elastic-ceo.
+// De browser praat zelf rechtstreeks met de Elasticsearch-service monumenten-in-nederland van de RCE.
+// Headers (CSP, noindex) staan in web/_headers; een onbekende URL geeft web/404.html.
+{
+  "name": "monumenten-in-nederland",
+  "compatibility_date": "2026-10-07",
+  "assets": {
+    "directory": "./web",
+    "not_found_handling": "404-page"
+  }
+}
