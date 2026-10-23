@@ -1,5 +1,5 @@
 // Controleert de echte service monumenten-in-nederland. Gebruik: npm run test:live
-import { ENDPOINT, buildQuery, tocQuery, buildToc, passagesQuery, leesUris, hoofdstukUri, fields, delenQuery } from '../web/search.js';
+import { ENDPOINT, buildQuery, tocQuery, buildToc, passagesQuery, leesUris, hoofdstukUri, fields, delenQuery, vermeldingenQuery } from '../web/search.js';
 
 let fouten = 0;
 const ok = (gelukt, tekst) => { console.log(`${gelukt ? 'ok  ' : 'FOUT'}  ${tekst}`); if (!gelukt) fouten++; };
@@ -32,6 +32,18 @@ ok(steden && steden.kinderen.filter(k => k.isKern).length === 187, `187 plaatsen
 const delft = toc.nodes.get(hoofdstukUri('sten009monu10_01', '0030'));
 const tekst = (await es(passagesQuery(leesUris(delft)))).json.hits.hits.map(h => Number(h._source[fields.volgnummer][0]));
 ok(tekst.length > 30 && tekst.every((n, i) => i === 0 || n > tekst[i - 1]), `Delft: ${tekst.length} tekstdelen op volgorde`);
+
+// Serieregisters: pas als de graph registers is geüpload.
+const personen = telling.persoon ?? 0;
+if (!personen) console.log('--    serieregisters nog niet in de index (graph registers niet geüpload); overgeslagen');
+else {
+  ok(personen > 7000 && telling.vermelding > 50000, `serieregisters: ${personen} personen, ${telling.vermelding} vermeldingen`);
+  const cuypers = (await es(buildQuery({ query: 'Cuypers', field: 'Register', filters: { soort: ['persoon'] } }))).json;
+  ok(cuypers.hits.total.value >= 3, `"Cuypers" in de registers: ${cuypers.hits.total.value} personen`);
+  const uri = cuypers.hits.hits[0]?._source['@id'];
+  const verm = (await es(vermeldingenQuery([uri]))).json.hits.hits;
+  ok(verm.length > 0 && verm.every(h => h._source[fields.passage] || h._source[fields.zekerheid]?.[0] === 'geen'), `vermeldingen van ${uri?.split('/').pop()}: ${verm.length}, met passage`);
+}
 
 console.log(fouten ? `\n${fouten} fout(en)` : '\nAlles gelukt.');
 process.exit(fouten ? 1 : 0);

@@ -50969,7 +50969,9 @@ De Alg. begraafplaats (Kerkstraat 78) werd rond 1829 aangelegd. Opvallend is de 
             schema:CreativeWork ;
         rdfs:label "Tiengemeten (gemeente Korendijk)"@nl ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -50996,7 +50998,9 @@ De Alg. begraafplaats (Kerkstraat 78) werd rond 1829 aangelegd. Opvallend is de 
             "Tiengemeten 6",
             "Tiengemeten 7" ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -51017,7 +51021,9 @@ De Alg. begraafplaats (Kerkstraat 78) werd rond 1829 aangelegd. Opvallend is de 
             schema:CreativeWork ;
         rdfs:label "Tiengemeten (gemeente Korendijk) – Woonhuizen"@nl ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -51038,7 +51044,9 @@ De Alg. begraafplaats (Kerkstraat 78) werd rond 1829 aangelegd. Opvallend is de 
             schema:CreativeWork ;
         rdfs:label "Tiengemeten (gemeente Korendijk) – Weegbruggen"@nl ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -51063,7 +51071,9 @@ De Alg. begraafplaats (Kerkstraat 78) werd rond 1829 aangelegd. Opvallend is de 
             "Nieuwendijk 1",
             "Nieuwendijk 8" ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -73492,7 +73502,9 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a. De bouwkundige termen 
         rdfs:label "Eiland Tiengemeten"@nl ;
         min:beeldcode "tieng001" ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -73507,7 +73519,9 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a. De bouwkundige termen 
         rdfs:label "Tiengemeten, Weegbrug Groote Haven"@nl ;
         min:beeldcode "tieng001" ;
         min:deel "Monumenten in Nederland. Zuid-Holland" ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;
@@ -76716,7 +76730,9 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a. De bouwkundige termen 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01/hoofdstuk/0171> a min:Kern,
             schema:Chapter ;
         rdfs:label "Tiengemeten (gemeente Korendijk)"@nl ;
+        min:gemeente "Korendijk" ;
         min:gemeenteInBoek "Korendijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Korendijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Zuid-Holland> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Tiengemeten (gemeente Korendijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu10_01> ;

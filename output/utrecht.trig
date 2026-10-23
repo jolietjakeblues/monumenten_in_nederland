@@ -329,11 +329,11 @@
         rdfs:label "sten009monu01ill509.gif"@nl ;
         min:deel "Monumenten in Nederland. Utrecht" ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
-        min:hoofdstuk "Verantwoording van de afbeeldingen › Voorwerk" ;
+        min:hoofdstuk "Verantwoording van de afbeeldingen" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:provincie "Utrecht" ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01ill509.gif> ;
-        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092-03> ;
+        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092> ;
         schema:pageStart "schutblad achter" .
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/afbeelding/sten009monu01ill54> a schema:ImageObject ;
@@ -7571,7 +7571,9 @@ De 42 meter hoge watertoren (Burg. Van der Borchlaan) dateert van 1926. De oorsp
             schema:CreativeWork ;
         rdfs:label "Blauwkapel (gemeente Utrecht)"@nl ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Utrecht" ;
         min:gemeenteInBoek "Utrecht" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Blauwkapel (gemeente Utrecht)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -7591,7 +7593,9 @@ De 42 meter hoge watertoren (Burg. Van der Borchlaan) dateert van 1926. De oorsp
             schema:CreativeWork ;
         rdfs:label "Blauwkapel (gemeente Utrecht) – Herv. kerk"@nl ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Utrecht" ;
         min:gemeenteInBoek "Utrecht" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Blauwkapel (gemeente Utrecht)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -11392,7 +11396,9 @@ Fort 't Hemeltje (Fortweg 9-11) dateert uit 1877-'81 en is één van de laatste 
         rdfs:label "Huis ter Heide-Bosch en Duin (gemeente Zeist)"@nl ;
         min:adres "Amersfoortseweg 10F" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -11413,7 +11419,9 @@ Fort 't Hemeltje (Fortweg 9-11) dateert uit 1877-'81 en is één van de laatste 
         rdfs:label "Huis ter Heide-Bosch en Duin (gemeente Zeist)"@nl ;
         min:adres "Amersfoortseweg 47" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -11437,13 +11445,23 @@ Fort 't Hemeltje (Fortweg 9-11) dateert uit 1877-'81 en is één van de laatste 
             "Amersfoortseweg 59",
             "Park Rodichem 1-2" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:kern "Huis ter Heide-Bosch en Duin" ;
         min:lemma "Buitenplaatsen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/32614>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/74355>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/74356>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/74357> ;
         min:provincie "Utrecht" ;
+        min:rijksmonumentnummer "510258",
+            "511551",
+            "511552",
+            "511553" ;
         min:soort "lemma" ;
         min:volgnummer 440 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/afbeelding/sten009monu01ill192> ;
@@ -11462,13 +11480,21 @@ Fort 't Hemeltje (Fortweg 9-11) dateert uit 1877-'81 en is één van de laatste 
             "Baarnseweg 25-27",
             "Taveernelaan 10" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:kern "Huis ter Heide-Bosch en Duin" ;
         min:lemma "Landhuizen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69858>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69859>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69860> ;
         min:provincie "Utrecht" ;
+        min:rijksmonumentnummer "511568",
+            "511569",
+            "511570" ;
         min:soort "lemma" ;
         min:volgnummer 441 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/afbeelding/sten009monu01ill193> ;
@@ -11491,13 +11517,23 @@ Fort 't Hemeltje (Fortweg 9-11) dateert uit 1877-'81 en is één van de laatste 
             "Duinweg 29",
             "Ruysdaellaan 2" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:kern "Huis ter Heide-Bosch en Duin" ;
         min:lemma "Villa's" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/12118>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/34128>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/54543>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69187> ;
         min:provincie "Utrecht" ;
+        min:rijksmonumentnummer "40410",
+            "510192",
+            "510250",
+            "510277" ;
         min:soort "lemma" ;
         min:volgnummer 442 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/afbeelding/sten009monu01ill194> ;
@@ -20003,7 +20039,9 @@ De hardstenen gedenknaald uit 1818-'20 met rotonde uit 1850 werd opgericht aan h
             schema:CreativeWork ;
         rdfs:label "Teckop (gemeente Woerden)"@nl ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Woerden" ;
         min:gemeenteInBoek "Woerden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woerden_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Teckop (gemeente Woerden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -20024,13 +20062,17 @@ De hardstenen gedenknaald uit 1818-'20 met rotonde uit 1850 werd opgericht aan h
         rdfs:label "Teckop (gemeente Woerden) – Boerderijen"@nl ;
         min:adres "Teckop 9" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Woerden" ;
         min:gemeenteInBoek "Woerden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woerden_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Teckop (gemeente Woerden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:kern "Teckop" ;
         min:lemma "Boerderijen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/34746> ;
         min:provincie "Utrecht" ;
+        min:rijksmonumentnummer "22954" ;
         min:soort "lemma" ;
         min:volgnummer 746 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/afbeelding/sten009monu01ill323> ;
@@ -27928,16 +27970,16 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/passage/01015> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "Voorwerk"@nl ;
+        rdfs:label "Verantwoording van de afbeeldingen"@nl ;
         min:deel "Monumenten in Nederland. Utrecht" ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
-        min:hoofdstuk "Verantwoording van de afbeeldingen › Voorwerk" ;
+        min:hoofdstuk "Verantwoording van de afbeeldingen" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:provincie "Utrecht" ;
         min:soort "alinea" ;
         min:volgnummer 1015 ;
-        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092-03> ;
-        schema:name "Voorwerk"@nl ;
+        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092> ;
+        schema:name "Verantwoording van de afbeeldingen"@nl ;
         schema:pageEnd "352" ;
         schema:pageStart "352" ;
         schema:pagination "352" ;
@@ -32290,7 +32332,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         rdfs:label "Blauwkapel, Herv. kerk"@nl ;
         min:beeldcode "blauw006" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Utrecht" ;
         min:gemeenteInBoek "Utrecht" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Blauwkapel (gemeente Utrecht)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -33298,7 +33342,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         rdfs:label "Huis ter Heide, Buitenplaats Zandbergen"@nl ;
         min:beeldcode "huist002" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -33313,7 +33359,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         rdfs:label "Huis ter Heide, Villa Henny (1979)"@nl ;
         min:beeldcode "huist002" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -33328,7 +33376,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         rdfs:label "Huis ter Heide, Villa Lovdalla"@nl ;
         min:beeldcode "huist002" ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -35587,7 +35637,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/afbeelding/sten009monu01ill323> a schema:ImageObject ;
         rdfs:label "Teckop, Krukhuisboerderij De Zomer"@nl ;
         min:deel "Monumenten in Nederland. Utrecht" ;
+        min:gemeente "Woerden" ;
         min:gemeenteInBoek "Woerden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woerden_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Teckop (gemeente Woerden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -39832,17 +39884,6 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         schema:position 5 ;
         schema:url <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01_01_0006.php> .
 
-    <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092-03> a schema:Chapter ;
-        rdfs:label "Voorwerk"@nl ;
-        min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
-        min:hoofdstuk "Verantwoording van de afbeeldingen › Voorwerk" ;
-        min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
-        min:provincie "Utrecht" ;
-        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092> ;
-        schema:name "Voorwerk"@nl ;
-        schema:position 3 ;
-        schema:url <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01_01_0092.php> .
-
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0004-02> a schema:Chapter ;
         rdfs:label "Renaissance en maniërisme"@nl ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
@@ -39945,7 +39986,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0019> a min:Kern,
             schema:Chapter ;
         rdfs:label "Blauwkapel (gemeente Utrecht)"@nl ;
+        min:gemeente "Utrecht" ;
         min:gemeenteInBoek "Utrecht" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Blauwkapel (gemeente Utrecht)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -39959,7 +40002,9 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0072> a min:Kern,
             schema:Chapter ;
         rdfs:label "Teckop (gemeente Woerden)"@nl ;
+        min:gemeente "Woerden" ;
         min:gemeenteInBoek "Woerden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woerden_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Teckop (gemeente Woerden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
@@ -40508,17 +40553,6 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         schema:position 77 ;
         schema:url <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01_01_0077.php> .
 
-    <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092> a schema:Chapter ;
-        rdfs:label "Verantwoording van de afbeeldingen"@nl ;
-        min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
-        min:hoofdstuk "Verantwoording van de afbeeldingen" ;
-        min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
-        min:provincie "Utrecht" ;
-        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
-        schema:name "Verantwoording van de afbeeldingen"@nl ;
-        schema:position 92 ;
-        schema:url <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01_01_0092.php> .
-
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092-01> a schema:Chapter ;
         rdfs:label "Plattegronden en opmetingstekeningen"@nl ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
@@ -40665,6 +40699,17 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
         schema:position 83 ;
         schema:url <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01_01_0083.php> .
 
+    <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0092> a schema:Chapter ;
+        rdfs:label "Verantwoording van de afbeeldingen"@nl ;
+        min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
+        min:hoofdstuk "Verantwoording van de afbeeldingen" ;
+        min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
+        min:provincie "Utrecht" ;
+        schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
+        schema:name "Verantwoording van de afbeeldingen"@nl ;
+        schema:position 92 ;
+        schema:url <https://www.dbnl.org/tekst/sten009monu01_01/sten009monu01_01_0092.php> .
+
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0001> a schema:Chapter ;
         rdfs:label "Voorwerk"@nl ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
@@ -40718,12 +40763,15 @@ Mohr, A.H., Vestingbouwkundige termen, Zutphen 1983."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0036> a min:Kern,
             schema:Chapter ;
         rdfs:label "Huis ter Heide-Bosch en Duin (gemeente Zeist)"@nl ;
+        min:gemeente "Zeist" ;
         min:gemeenteInBoek "Zeist" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Zeist_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Utrecht_(provincie)> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Huis ter Heide-Bosch en Duin (gemeente Zeist)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01> ;
         min:kern "Huis ter Heide-Bosch en Duin" ;
         min:provincie "Utrecht" ;
+        min:woonplaats "Huis ter Heide" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu01_01/hoofdstuk/0007> ;
         schema:name "Huis ter Heide-Bosch en Duin (gemeente Zeist)"@nl ;
         schema:position 36 ;

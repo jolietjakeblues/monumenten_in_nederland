@@ -41,7 +41,16 @@ server.mjs    lokale server voor web/
 De bronbestanden zijn de XML-downloads van DBNL. Ze staan niet in git
 (`.gitignore`). Zet ze met deze namen in `data/bron/`.
 
-Omgezet tot nu toe: Zuid-Holland (10).
+Alle twaalf delen zijn omgezet (23 oktober 2026). Controleren:
+
+```bash
+python scripts/controleer.py
+```
+
+Dat geeft per deel het aantal triples, plaatsen, plaatsen zonder huidige
+gemeente, passages, lemma's, afbeeldingen, termen, adressen en gekoppelde
+rijksmonumenten. Het meldt ook wat mis kan gaan: meer dan één 'Voorwerk',
+lege of zeer grote passages en passages zonder hoofdstuk.
 
 ## Draaien
 
@@ -64,6 +73,59 @@ script alleen leesvragen aan de Elastic-service van `rce/erfgoed`, om
 woonplaatsen, huidige gemeenten en rijksmonumenten op te zoeken. De
 antwoorden staan in `data/cache/`, zodat een tweede run geen vragen meer
 stelt. Gooi `data/cache/` weg om opnieuw op te vragen.
+
+## Serieregisters (graph `registers`)
+
+Achter in deel 12 (Flevoland) staan de registers van de hele serie. Die
+worden niet als tekst opgenomen, maar als gestructureerde data in een eigen
+graph, `…/graphs/registers`, met links naar de passages in alle twaalf delen:
+
+```bash
+python scripts/registers.py
+```
+
+Het script heeft de TriG van alle delen in `output/` nodig, want het zoekt per
+verwijzing de passages op die pagina op. Uitvoer: `output/registers.trig`
+(ongeveer 72 MB; zip hem eventueel voor de upload) en
+`output/registers-zonder-passage.csv`.
+
+| Register | Ingangen | Soort (URI) | Klasse |
+|---|---|---|---|
+| Architecten en kunstenaars | 7.739 | `…/id/register/persoon/<slug>` | `schema:Person` |
+| Topografie | 3.564 | `…/id/register/plaats/<slug>` | `schema:Place` |
+| Kastelen, buitenplaatsen en (land)huizen | 1.260 | `…/id/register/object/<slug>` | `schema:Place` |
+| Categorie-indeling | 1.801 | `…/id/register/categorie/<slug>` | `schema:DefinedTerm`, `skos:Concept`, met `skos:broader` |
+
+- **Elke ingang** heeft:
+  - `schema:name` (de leesbare naam, bijvoorbeeld 'Dirk van der Aa');
+  - `min:registernaam` (de vorm in het register, 'Aa, Dirk van der');
+  - `min:registertekst` (de hele regel uit het register);
+  - waar van toepassing `min:levensdata`, `min:rol`, `min:gemeenteInRegister`,
+    `min:provincie`, `min:zie` en `min:categoriepad`;
+  - `min:aantalVermeldingen` en `min:deel` (de delen waarin de ingang
+    voorkomt).
+- **Elke verwijzing** ('ZH 233', 'U 146-148') is een `min:Vermelding`
+  (`…/id/register/vermelding/<n>`) met:
+  - `min:vanIngang`, `min:verwijzing`, `min:inDeel`, `schema:pageStart` en
+    `schema:pageEnd`;
+  - `min:opmaak`: `vet` of `cursief`, zoals in het register. Vet is de plaats
+    waar iets uitgebreid aan bod komt, of een lemma;
+  - `min:passage` en `min:inHoofdstuk`: de passage(s) op die pagina en hun
+    hoofdstuk;
+  - `min:zekerheid`:
+    - `naam`: de naam komt in de tekst van de passage voor (83%);
+    - `pagina`: de naam staat niet letterlijk in de tekst, dus alle passages
+      op die pagina (17%);
+    - `geen`: geen passage op die pagina (7 gevallen, zie de CSV).
+- De hoofdgroepen van de categorie-indeling ('Verdedigen (verdediging)',
+  'Geloven (religie)' …) zijn de bovenste laag van de boom.
+- Het 'Register op de categorieën' verwijst alleen naar pagina's van het
+  register zelf en is niet opgenomen.
+
+In de voorkant zijn ingangen te vinden met **Zoek in: Register** of het filter
+**Soort**. Elke ingang heeft een eigen pagina (`?ingang=persoon/…`) met alle
+vermeldingen per deel. In de leesweergave staat onder elke passage welke
+registeringangen ernaar verwijzen.
 
 ## Model
 
@@ -279,9 +341,38 @@ TriG.
 
 ## Aandachtspunten in de bron
 
-- Kernen staan onder de gemeente uit het jaar van uitgave. De huidige gemeente
-  wordt afgeleid uit de objecten in `rce/erfgoed` met dezelfde woonplaatsnaam.
-  Afwijkende namen staan in `WOONPLAATS_ALIAS` in het script.
+- Kernen staan onder de gemeente uit het jaar van uitgave (1996–2006). De
+  huidige gemeente wordt afgeleid uit de objecten in `rce/erfgoed` met dezelfde
+  woonplaatsnaam. Het script probeert achtereenvolgens:
+  1. de kernnaam binnen de provincie van het deel. Plaatsnamen als Hengelo en
+     Bergen komen vaker voor, dus niet landelijk;
+  2. de schrijfwijze in `rce/erfgoed`: 'Etten-leur' → 'Etten-Leur',
+     'Bergen' → 'Bergen (NH)', 'St.' = 'Sint';
+  3. de alternatieve naam uit de kop (Fries: 'Akmarijp (Eagmaryp)');
+  4. de losse delen van een samengestelde naam ('Eelde-Paterswolde',
+     'Amsterdam-Sloten');
+  5. provincies uit `PROVINCIE_OOK` (Vijfheerenlanden: sinds 2019 Utrecht).
+     Bij twijfel wint de provincie met de meeste objecten, zodat een paar
+     verouderde objecten met gemeente Zederik niet winnen;
+  6. landelijk, maar alleen als de naam in één gemeente voorkomt;
+  7. de gemeente uit de kop, als er nog een gemeente met die naam is
+     (gehuchten als Teckop, gemeente Woerden).
+
+  Afwijkende namen staan in `WOONPLAATS_ALIAS`. Zonder huidige gemeente
+  blijven Bakhuizen (Fryslân) en vier gehuchten in Overijssel waarvan de
+  gemeente uit het boek niet meer bestaat (Deldeneresch, Mariaparochie,
+  Noord Deurningen, Paaslo).
+- Tussen de kernen staan soms divs zonder kop: een alinea van de vorige plaats
+  plus de volgende plaats. Die alinea hoort bij de vorige plaats; loopt een
+  lemma door, dan hoort ze bij dat lemma. Achter in Gelderland staat zo'n div
+  met het colofon.
+- Koppen kunnen DBNL-markeringen bevatten ('{problem}Willemstad'); die worden
+  weggehaald.
+- De woordenlijst heet in Noord-Holland 'Verklaring van enige Termen'.
+- Deel 12 (Flevoland) bevat na de provincie een **terugblik op de serie** en
+  de **registers van de hele serie**. De terugblik staat als hoofdstukken in
+  deel 12. De serieregisters leveren, net als de gewone registers, geen
+  passages op.
 - Afbeeldingen staan in de XML midden in zinnen. Ze worden uit de lopende
   tekst gehaald.
 - Getallen tussen vierkante haken, zoals `[11]`, lijken te verwijzen naar

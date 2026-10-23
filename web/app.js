@@ -47,6 +47,7 @@ function toon(modus) {
   $('landing').hidden = modus !== 'start';
   $('workspace').hidden = modus !== 'zoek';
   $('lezen').hidden = modus !== 'lezen';
+  $('ingang').hidden = modus !== 'ingang';
   $('explain').hidden = modus !== 'zoek';
   if (modus !== 'lezen') getoond = null;
 }
@@ -83,6 +84,7 @@ async function route() {
   fout(null);
   const p = S.fromParams(location.search);
   if (p.lees) return lezen(p.lees.deel, p.lees.sleutel, decodeURIComponent(location.hash.slice(1)));
+  if (p.ingang) return toonIngang(p.ingang);
   if (p.active) { state = p.state; vulFormulier(); return zoek(); }
   toon('start');
   kruimels({ text: 'Zoeken en lezen' });
@@ -141,7 +143,15 @@ async function zoek() {
     const ouders = [...new Set(hits.flatMap(hit => [...values(hit._source[fields.isPartOf]), ...values(hit._source[fields.inDefinedTermSet])]).filter(uri => S.soortVan(uri) === 'hoofdstuk'))];
     const namen = new Map();
     if (ouders.length) (await vraag(S.byIdQuery(ouders))).hits.hits.forEach(hit => namen.set(hit._source['@id'], first(hit._source[fields.naam])));
-    $('results').replaceChildren(...(hits.length ? hits.map(hit => resultaat(hit, namen)) : [h('p', { class: 'empty', text: 'Geen resultaten. Probeer een ander woord, minder filters of Zoek in: Alles.' })]));
+    // Vermeldingen van de registeringangen op deze pagina, in één request.
+    const ingangen = hits.map(hit => hit._source['@id']).filter(uri => S.INGANGEN.includes(S.soortVan(uri)));
+    const vermeldingen = new Map();
+    if (ingangen.length) (await vraag(S.vermeldingenQuery(ingangen))).hits.hits.forEach(hit => {
+      const ingang = first(hit._source[fields.vanIngang]);
+      if (!vermeldingen.has(ingang)) vermeldingen.set(ingang, []);
+      vermeldingen.get(ingang).push(hit._source);
+    });
+    $('results').replaceChildren(...(hits.length ? hits.map(hit => (S.INGANGEN.includes(S.soortVan(hit._source['@id'])) ? ingangKaart(hit, vermeldingen.get(hit._source['@id']) ?? []) : resultaat(hit, namen))) : [h('p', { class: 'empty', text: 'Geen resultaten. Probeer een ander woord, minder filters of Zoek in: Alles.' })]));
     facetten(result.aggregations ?? {}, labels);
     actieveFilters(labels);
     $('pagination').hidden = totaal <= S.PAGE_SIZE;
@@ -220,6 +230,87 @@ function resultaat(hit, namen) {
       S.ldUrl(uri) && h('a', { href: S.ldUrl(uri), target: '_blank', rel: 'noopener noreferrer', text: 'Linked data' })));
 }
 
+// --- serieregisters ---------------------------------------------------------------------------------------------
+const ingangHref = uri => `?ingang=${S.ingangPad(uri)}`;
+// Eén vermelding als link: 'ZH 233 Delft'; vet in het register = vet hier, 'pagina' = de naam staat niet letterlijk in de tekst.
+function vermeldingLink(v) {
+  const href = S.leesLinkVermelding(v);
+  const tekst = `${first(v[fields.verwijzing])}${first(v[fields.kern]) ? ` ${first(v[fields.kern])}` : ''}`;
+  const zekerheid = first(v[fields.zekerheid]);
+  const titel = zekerheid === 'pagina' ? 'De naam staat niet letterlijk in de tekst; link naar de passages op die pagina.' : null;
+  const inhoud = first(v[fields.opmaak]) === 'vet' ? h('strong', { text: tekst }) : tekst;
+  return href ? h('a', { href, 'data-intern': true, title: titel, class: zekerheid === 'pagina' ? 'pagina' : null }, inhoud) : h('span', { class: 'muted' }, inhoud);
+}
+function ingangMeta(s) {
+  return metadata([
+    ['Levensdata', first(s[fields.levensdata])],
+    ['Rol', values(s[fields.rol]).join(', ')],
+    ['Gemeente (register)', first(s[fields.gemeenteInRegister])],
+    ['Provincie', first(s[fields.provincie])],
+    ['Categorie', S.soortVan(s['@id']) === 'categorie' ? first(s[fields.categoriepad]) : null],
+    ['Register', first(s[fields.register])],
+    ['In de delen', values(s[fields.deel]).join(', ')],
+  ]);
+}
+function ingangKaart(hit, vermeldingen) {
+  const s = hit._source;
+  const uri = s['@id'];
+  const soort = S.soortVan(uri);
+  const MAX = 8;
+  return h('article', { class: 'resultaat', 'data-soort': soort },
+    h('span', { class: 'badge', text: S.soorten[soort] }),
+    h('h3', {}, h('a', { href: ingangHref(uri), 'data-intern': true, text: first(s[fields.naam]) })),
+    ingangMeta(s),
+    vermeldingen.length ? h('div', { class: 'vermeldingen' }, h('strong', { text: `${vermeldingen.length} ${vermeldingen.length === 1 ? 'vermelding' : 'vermeldingen'}: ` }),
+      vermeldingen.slice(0, MAX).flatMap((v, i) => [i ? ', ' : '', vermeldingLink(v)]),
+      vermeldingen.length > MAX ? [' … ', h('a', { href: ingangHref(uri), 'data-intern': true, text: 'alle vermeldingen' })] : null) : null,
+    h('div', { class: 'links' },
+      h('a', { href: ingangHref(uri), 'data-intern': true, text: 'Alle vermeldingen' }),
+      h('a', { href: `https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/browser?resource=${encodeURIComponent(uri)}`, target: '_blank', rel: 'noopener noreferrer', text: 'Linked data' })));
+}
+async function toonIngang(pad) {
+  toon('ingang');
+  const uri = S.ingangUri(pad);
+  $('status').textContent = 'Laden…';
+  try {
+    const [ingang, verm] = await Promise.all([S.search(S.ingangQuery(uri)), S.search(S.vermeldingenQuery([uri]))]);
+    const s = ingang.hits.hits[0]?._source;
+    if (!s) { fout('Deze ingang bestaat niet (meer) in de dataset.'); $('status').textContent = ''; return; }
+    const soort = S.soortVan(uri);
+    const vermeldingen = verm.hits.hits.map(hit => hit._source);
+    kruimels({ text: 'Registers' }, { text: S.soorten[soort] }, { text: first(s[fields.naam]) });
+    // Categorie: bovenliggende en onderliggende categorieën.
+    let boom = [];
+    if (soort === 'categorie') {
+      const broader = first(s[fields.broader]);
+      const [boven, onder] = await Promise.all([broader ? S.search(S.ingangQuery(broader)) : null, S.search(S.smallerQuery(uri))]);
+      const b = boven?.hits.hits[0]?._source;
+      boom = [
+        b && h('p', {}, 'Valt onder: ', h('a', { href: ingangHref(b['@id']), 'data-intern': true, text: first(b[fields.naam]) })),
+        onder.hits.hits.length ? h('div', {}, h('h3', { class: 'sectie', text: `Onderverdeling (${onder.hits.hits.length})` }),
+          h('ul', { class: 'kernen-lijst' }, onder.hits.hits.map(hit => h('li', {}, h('a', { href: ingangHref(hit._source['@id']), 'data-intern': true, text: first(hit._source[fields.naam]) }),
+            h('span', { class: 'toc-gemeente', text: ` (${first(hit._source[fields.aantalVermeldingen]) ?? 0})` }))))) : null,
+      ];
+    }
+    const zie = values(s[fields.zie]);
+    $('ingang').replaceChildren(h('article', { class: 'hoofdstuk' },
+      h('p', { class: 'pad', text: first(s[fields.register]) }),
+      h('h2', { text: first(s[fields.naam]) }),
+      first(s[fields.registertekst]) && h('p', { class: 'kop-meta', text: `In het register: ${first(s[fields.registertekst])}` }),
+      ingangMeta(s), ...boom,
+      zie.length ? h('p', {}, 'Zie ook: ', zie.join(', ')) : null,
+      h('h3', { class: 'sectie', text: `Vermeldingen (${vermeldingen.length})` }),
+      vermeldingen.length ? h('p', { class: 'hint', text: 'Vet: in het register vet gedrukt (de plaats waar het uitgebreid aan bod komt, of een lemma). Gestippeld: de naam staat niet letterlijk in de tekst van die pagina.' }) : h('p', { class: 'empty', text: 'Geen vermeldingen.' }),
+      ...S.perDeel(vermeldingen).map(([deel, lijst]) => h('div', { class: 'vermeldingen-deel' },
+        h('h4', { text: `${deelNaam(deel)} (${lijst.length})` }),
+        h('p', { class: 'vermeldingen' }, lijst.flatMap((v, i) => [i ? ', ' : '', vermeldingLink(v)])))),
+      h('div', { class: 'links' }, h('a', { href: `https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/browser?resource=${encodeURIComponent(uri)}`, target: '_blank', rel: 'noopener noreferrer', text: 'Linked data' }))));
+    toonQuery(S.vermeldingenQuery([uri]), [`Alle vermeldingen van “${first(s[fields.naam])}”, per deel en op pagina.`]);
+    $('status').textContent = `${S.soorten[soort]}: ${vermeldingen.length} ${vermeldingen.length === 1 ? 'vermelding' : 'vermeldingen'}`;
+    $('ingang').scrollIntoView({ block: 'start' });
+  } catch (error) { if (error.name !== 'AbortError') fout(error.message); }
+}
+
 function facetten(aggs, labels) {
   const label = (key, value) => (key === 'soort' ? S.soorten[value] : key === 'tekstsoort' ? S.tekstsoorten[value] : key === 'deel' ? labels[value] ?? deelNaam(value) : value) ?? value;
   const blokken = Object.entries(S.facets).map(([key, titel]) => {
@@ -283,7 +374,15 @@ function figuur(a) {
     src && h('img', { src, alt: bijschrift ?? '', loading: 'lazy' }),
     h('figcaption', {}, bijschrift ?? '', first(a[fields.pageStart]) && h('span', { text: `${bijschrift ? ' · ' : ''}p. ${first(a[fields.pageStart])}` })));
 }
-function passageBlok(p) {
+// Registeringangen die naar een passage verwijzen: 'In de registers: P.J.H. Cuypers, Kasteel Doorwerth'.
+function inRegisters(ingangen) {
+  if (!ingangen?.length) return null;
+  const MAX = 12;
+  return h('p', { class: 'in-registers' }, h('span', { text: 'In de registers: ' }),
+    ingangen.slice(0, MAX).flatMap(([uri, naam], i) => [i ? ', ' : '', h('a', { href: ingangHref(uri), 'data-intern': true, 'data-soort': S.soortVan(uri), text: naam })]),
+    ingangen.length > MAX ? ` en ${ingangen.length - MAX} meer` : null);
+}
+function passageBlok(p, registers) {
   const tekst = first(p[fields.tekst]) ?? '';
   const soort = first(p[fields.soort]);
   const delenTekst = soort === 'literatuur'
@@ -294,7 +393,7 @@ function passageBlok(p) {
     });
   return h('div', { class: 'passage', id: anker(p['@id']) },
     first(p[fields.pagination]) && h('span', { class: 'paginas', text: paginas(first(p[fields.pagination])) }),
-    delenTekst, monumenten(p));
+    delenTekst, monumenten(p), inRegisters(registers?.get(p['@id'])));
 }
 async function lezen(code, sleutel, hash) {
   toon('lezen');
@@ -337,20 +436,39 @@ async function tekenHoofdstuk(code, toc, pagina) {
 
   let inhoudBlokken = [];
   let telling = '';
-  if (pagina.naam === TERMEN) {
+  if (pagina.naam.toLowerCase() === TERMEN.toLowerCase()) { // Noord-Holland: '… Termen'
     const body = S.termenQuery(pagina.uri);
     toonQuery(body, ['Alle termen uit de verklarende woordenlijst van dit deel, op alfabet.']);
     const hits = (await vraag(body)).hits.hits;
     inhoudBlokken = [h('dl', { class: 'termen' }, hits.map(hit => h('div', { id: anker(hit._source['@id']) }, h('dt', { text: first(hit._source[fields.naam]) }), h('dd', { text: first(hit._source[fields.uitleg]) }))))];
     telling = `${hits.length} termen`;
+  } else if (REGISTERS.includes(pagina.naam) && pagina.deel === 'sten009monu12_01' && pagina.naam !== 'Topografisch register' && pagina.naam !== 'Register van personen') {
+    // De serieregisters staan als gestructureerde data in de dataset (graph registers).
+    const zoek = soort => `?soort=${soort}&sorteer=relevantie`;
+    inhoudBlokken = [h('p', {}, 'De registers van de hele serie staan als gestructureerde data in de dataset: elke naam, plaats, kasteel of categorie is een eigen ingang, met links naar de passages in alle twaalf delen.'),
+      h('ul', {}, [['persoon', 'Architecten en kunstenaars'], ['plaats', 'Plaatsen'], ['object', 'Kastelen, buitenplaatsen en (land)huizen'], ['categorie', 'Categorieën']]
+        .map(([soort, tekst]) => h('li', {}, h('a', { href: zoek(soort), 'data-intern': true, text: tekst })))),
+      h('p', {}, 'Zoek op een naam met ', h('strong', { text: 'Zoek in: Register' }), ', of bekijk ', S.dbnlUrl(pagina.url) ? h('a', { href: S.dbnlUrl(pagina.url), target: '_blank', rel: 'noopener noreferrer', text: 'het register op DBNL' }) : 'het register op DBNL', '.')];
   } else if (REGISTERS.includes(pagina.naam)) {
-    inhoudBlokken = [h('p', {}, 'De registers staan niet als tekst in de dataset: het zijn lijsten met paginanummers. Zoek hierboven op een plaats of naam, of bekijk ', S.dbnlUrl(pagina.url) ? h('a', { href: S.dbnlUrl(pagina.url), target: '_blank', rel: 'noopener noreferrer', text: 'het register op DBNL' }) : 'het register op DBNL', '.')];
+    inhoudBlokken = [h('p', {},'De registers staan niet als tekst in de dataset: het zijn lijsten met paginanummers. Zoek hierboven op een plaats of naam, of bekijk ', S.dbnlUrl(pagina.url) ? h('a', { href: S.dbnlUrl(pagina.url), target: '_blank', rel: 'noopener noreferrer', text: 'het register op DBNL' }) : 'het register op DBNL', '.')];
   } else {
     const uris = S.leesUris(pagina);
     const body = S.passagesQuery(uris);
     toonQuery(body, [`Alle tekst van “${pagina.naam}”${uris.length > 1 ? ` en de ${uris.length - 1} secties erin` : ''}, in de volgorde van het boek (min:volgnummer).`]);
     const [tekst, beelden] = await Promise.all([vraag(body), S.search(S.afbeeldingenQuery(uris))]);
     const passages = tekst.hits.hits.map(hit => hit._source);
+    // Welke registeringangen naar deze passages verwijzen; per passage op naam, zonder dubbele.
+    const registers = new Map();
+    if (passages.length) {
+      const verm = await S.search(S.vermeldingenOpPassagesQuery(passages.map(p => p['@id'])));
+      for (const { _source: v } of verm.hits.hits) {
+        for (const p of values(v[fields.passage])) {
+          if (!registers.has(p)) registers.set(p, new Map());
+          registers.get(p).set(first(v[fields.vanIngang]), first(v[fields.ingangNaam]));
+        }
+      }
+      for (const [p, m] of registers) registers.set(p, [...m].sort((a, b) => a[1].localeCompare(b[1], 'nl')));
+    }
     const { blokken, achteraan } = S.plaatsAfbeeldingen(passages, beelden.hits.hits.map(hit => hit._source));
     // Kop per sectie, op het moment dat de eerste tekst van die sectie langskomt.
     const gehad = new Set([pagina.uri]);
@@ -362,7 +480,7 @@ async function tekenHoofdstuk(code, toc, pagina) {
       for (let n = node; n && n !== pagina; n = n.ouderNode) diepte++;
       return [...koppen(node.ouder), h(diepte > 1 ? 'h4' : 'h3', { class: 'sectie', id: anker(uri), text: node.naam })];
     };
-    for (const b of blokken) inhoudBlokken.push(...koppen(first(b.passage[fields.isPartOf])), ...b.ervoor.map(figuur), passageBlok(b.passage), ...b.afbeeldingen.map(figuur));
+    for (const b of blokken) inhoudBlokken.push(...koppen(first(b.passage[fields.isPartOf])), ...b.ervoor.map(figuur), passageBlok(b.passage, registers), ...b.afbeeldingen.map(figuur));
     inhoudBlokken.push(...achteraan.map(figuur));
     const kernen = pagina.kinderen.filter(k => k.isKern);
     if (kernen.length) inhoudBlokken.push(h('h3', { class: 'sectie', text: `Plaatsen (${kernen.length})` }), h('ul', { class: 'kernen-lijst' }, kernen.map(k => h('li', {}, tocLink(code, k, null)))));

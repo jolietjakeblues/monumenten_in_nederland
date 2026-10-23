@@ -15,7 +15,8 @@ MAP = Path(__file__).resolve().parent
 NAAM = 'monumenten-in-nederland'
 
 analysis = json.loads((MAP / 'nl-analyse.json').read_text(encoding='utf-8'))
-# Soort uit onze URI's: …/id/<deel>/passage/00451 → passage, …/id/<deel> → deel, …/id/serie → serie
+# Soort uit onze URI's: …/id/<deel>/passage/00451 → passage, …/id/<deel> → deel, …/id/serie → serie,
+# …/id/register/persoon/<slug> → persoon (ook plaats, object, categorie, vermelding, lijst)
 analysis['char_filter'] |= {
     'min_soort_uit_uri': {'type': 'pattern_replace', 'pattern': '^.*/id/[^/]+/([a-z]+)/[^/]*$', 'replacement': '$1'},
     'min_soort_deel': {'type': 'pattern_replace', 'pattern': '^.*/id/sten[^/]*$', 'replacement': 'deel'},
@@ -32,26 +33,33 @@ SDO = 'https://schema org/'
 MIN = 'https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#'
 RDF_TYPE = 'http://www w3 org/1999/02/22-rdf-syntax-ns#type'
 LABEL = 'http://www w3 org/2000/01/rdf-schema#label'
+SKOS_BROADER = 'http://www w3 org/2004/02/skos/core#broader'
 
 # Tekst met Nederlandse analyse, plus .keyword en .exact. Ook de dynamic template.
 TEKST = [SDO + 'text', SDO + 'name', SDO + 'caption', SDO + 'description', LABEL,
-         MIN + 'lemma', MIN + 'hoofdstuk']
+         MIN + 'lemma', MIN + 'hoofdstuk',
+         # serieregisters
+         MIN + 'registernaam', MIN + 'ingangNaam', MIN + 'categoriepad']
 
 # Korte tekst zonder taalverwerking, plus .keyword: plaats, adres, deel.
 # Anders vindt "kerk" ook Lekkerkerk en de Kerkstraat.
 KORT = [MIN + n for n in ('kern', 'alternatieveNaam', 'gemeenteInBoek', 'gemeente', 'woonplaats',
-                          'provincie', 'deel', 'adres', 'beeldcode')] + \
+                          'provincie', 'deel', 'adres', 'beeldcode',
+                          # serieregisters
+                          'levensdata', 'rol', 'register', 'registertekst', 'verwijzing', 'gemeenteInRegister', 'zie')] + \
        [SDO + n for n in ('identifier', 'pagination', 'author', 'publisher', 'datePublished')]
 
 # Nummers: korte tekst + .keyword + .getal (long), om op nummer te sorteren
 NUMMER = [MIN + 'rijksmonumentnummer', SDO + 'pageStart', SDO + 'pageEnd']
 
 # URI's en vaste waarden: alleen exact filteren (term, terms)
-URI = [RDF_TYPE, MIN + 'soort'] + \
+URI = [RDF_TYPE, MIN + 'soort', SKOS_BROADER] + \
       [SDO + n for n in ('isPartOf', 'image', 'url', 'contentUrl', 'inDefinedTermSet')] + \
-      [MIN + n for n in ('inDeel', 'heeftGemeente', 'heeftProvincie', 'noemtRijksmonument')]
+      [MIN + n for n in ('inDeel', 'heeftGemeente', 'heeftProvincie', 'noemtRijksmonument',
+                         # serieregisters
+                         'vanIngang', 'passage', 'inHoofdstuk', 'opmaak', 'zekerheid', 'soortPlaats')]
 
-GETAL = [MIN + 'volgnummer', SDO + 'position']
+GETAL = [MIN + 'volgnummer', SDO + 'position', MIN + 'aantalVermeldingen']
 
 alle = TEKST + KORT + NUMMER + URI + GETAL
 dubbel = sorted({v for v in alle if alle.count(v) > 1})

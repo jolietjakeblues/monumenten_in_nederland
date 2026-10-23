@@ -542,7 +542,9 @@
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/afbeelding/sten009monu02ill531> a schema:ImageObject ;
         rdfs:label "Woensdrecht-Hoogerheide, Buitenplaats Mattenburgh"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -17976,7 +17978,9 @@ De windmotor, ten zuidwesten van het dorp op de zomerdijk in de Genderse Uiterwa
             schema:CreativeWork ;
         rdfs:label "Giessen - Rijswijk (gemeente Woudrichem)"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -17997,12 +18001,16 @@ De windmotor, ten zuidwesten van het dorp op de zomerdijk in de Genderse Uiterwa
         rdfs:label "Giessen - Rijswijk (gemeente Woudrichem)"@nl ;
         min:adres "Kerkstraat 2" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Giessen - Rijswijk" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/56438> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "39609" ;
         min:soort "inleiding" ;
         min:volgnummer 716 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0067> ;
@@ -18018,13 +18026,17 @@ De windmotor, ten zuidwesten van het dorp op de zomerdijk in de Genderse Uiterwa
         rdfs:label "Giessen - Rijswijk (gemeente Woudrichem) – Slotje Rijswijk"@nl ;
         min:adres "Rijswijksesteeg 8" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Giessen - Rijswijk" ;
         min:lemma "Slotje Rijswijk" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/24438> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "39615" ;
         min:soort "lemma" ;
         min:volgnummer 717 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0067> ;
@@ -18039,7 +18051,9 @@ De windmotor, ten zuidwesten van het dorp op de zomerdijk in de Genderse Uiterwa
             schema:CreativeWork ;
         rdfs:label "Giessen - Rijswijk (gemeente Woudrichem) – Boerderijen"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -18062,7 +18076,9 @@ De windmotor, ten zuidwesten van het dorp op de zomerdijk in de Genderse Uiterwa
         min:adres "Giessense Steeg 2",
             "Sluisdijk 2-3" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -40195,7 +40211,9 @@ De Isr. begraafplaats (Spoorstraat ong.), gelegen ten westen van het dorp, werd 
             schema:CreativeWork ;
         rdfs:label "Vrijhoeve-capelle (gemeente Waalwijk)"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -40216,7 +40234,9 @@ De Isr. begraafplaats (Spoorstraat ong.), gelegen ten westen van het dorp, werd 
         rdfs:label "Vrijhoeve-capelle (gemeente Waalwijk)"@nl ;
         min:adres "Zuidhollandsedijk 63" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -40237,12 +40257,16 @@ De Isr. begraafplaats (Spoorstraat ong.), gelegen ten westen van het dorp, werd 
         rdfs:label "Vrijhoeve-capelle (gemeente Waalwijk)"@nl ;
         min:adres "Heistraat 4" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Vrijhoeve-capelle" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/54120> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "521864" ;
         min:soort "inleiding" ;
         min:volgnummer 1571 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0185> ;
@@ -40257,7 +40281,9 @@ De Isr. begraafplaats (Spoorstraat ong.), gelegen ten westen van het dorp, werd 
             schema:CreativeWork ;
         rdfs:label "Vrijhoeve-capelle (gemeente Waalwijk) – Boerderijen"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -40280,7 +40306,9 @@ De Isr. begraafplaats (Spoorstraat ong.), gelegen ten westen van het dorp, werd 
         min:adres "Julianalaan 27-27A",
             "Zuidhollandsedijk 189" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -40304,13 +40332,23 @@ De voorm. coöperatieve zuivelfabriek ‘De Toekomst’ (Julianalaan 27-27A) dat
         rdfs:label "Vrijhoeve-capelle (gemeente Waalwijk) – Huis Zuidewijn"@nl ;
         min:adres "Hogevaart 60" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Vrijhoeve-capelle" ;
         min:lemma "Huis Zuidewijn" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79942>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79943>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79944>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79945> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "529526",
+            "529527",
+            "529528",
+            "529543" ;
         min:soort "lemma" ;
         min:volgnummer 1574 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0185> ;
@@ -42062,18 +42100,20 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01642> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         min:soort "inleiding" ;
         min:volgnummer 1642 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "332" ;
         schema:pageStart "332" ;
         schema:pagination "332" ;
@@ -42082,16 +42122,28 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01643> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:adres "Kerkring 1",
             "Voorstraat 24-26" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/11610>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/21125>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/22488>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/39081>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/56257> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "23677",
+            "38952",
+            "38985",
+            "38986",
+            "521720" ;
         min:soort "inleiding" ;
         min:volgnummer 1643 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/afbeelding/sten009monu02ill525>,
@@ -42099,7 +42151,7 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
             <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/afbeelding/sten009monu02ill527>,
             <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/afbeelding/sten009monu02ill528> ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "334" ;
         schema:pageStart "332" ;
         schema:pagination "332-334" ;
@@ -42108,20 +42160,24 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01644> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:adres "Raadhuisstraat 2" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/54062> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "38968" ;
         min:soort "inleiding" ;
         min:volgnummer 1644 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/afbeelding/sten009monu02ill529> ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "334" ;
         schema:pageStart "334" ;
         schema:pagination "334" ;
@@ -42130,19 +42186,25 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01645> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:adres "Hofstraat 1" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/22690>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/41961> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "38951",
+            "521730" ;
         min:soort "inleiding" ;
         min:volgnummer 1645 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "334" ;
         schema:pageStart "334" ;
         schema:pagination "334" ;
@@ -42151,18 +42213,20 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01646> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         min:soort "inleiding" ;
         min:volgnummer 1646 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "335" ;
         schema:pageStart "334" ;
         schema:pagination "334-335" ;
@@ -42171,19 +42235,27 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01647> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:adres "Benedenkade 6" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/38567>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69046>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69061> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "349862",
+            "349877",
+            "38940" ;
         min:soort "inleiding" ;
         min:volgnummer 1647 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "335" ;
         schema:pageStart "335" ;
         schema:pagination "335" ;
@@ -42192,19 +42264,25 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01648> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
         min:adres "Benedenkade 4" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/18502>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69048> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "349875",
+            "38939" ;
         min:soort "inleiding" ;
         min:volgnummer 1648 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:pageEnd "335" ;
         schema:pageStart "335" ;
         schema:pagination "335" ;
@@ -42213,13 +42291,15 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01649> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen) – Woonhuizen"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen) – Woonhuizen"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:lemma "Woonhuizen" ;
         min:provincie "Noord-Brabant" ;
         min:soort "lemma" ;
@@ -42234,17 +42314,23 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01650> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen) – Bedrijfsgebouwen"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen) – Bedrijfsgebouwen"@nl ;
         min:adres "Bovenkade 11",
             "Voorstraat 65" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:lemma "Bedrijfsgebouwen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/10479>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/30289> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "38950",
+            "38980" ;
         min:soort "lemma" ;
         min:volgnummer 1650 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
@@ -42257,13 +42343,15 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01651> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen) – Verdedigingswerken"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen) – Verdedigingswerken"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:lemma "Verdedigingswerken" ;
         min:provincie "Noord-Brabant" ;
         min:soort "lemma" ;
@@ -42279,14 +42367,16 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01652> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen) – Fort De Hel"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen) – Fort De Hel"@nl ;
         min:adres "Helsedijk 81" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:lemma "Fort De Hel" ;
         min:provincie "Noord-Brabant" ;
         min:soort "lemma" ;
@@ -42301,16 +42391,20 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/passage/01653> a min:Passage,
             schema:CreativeWork ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen) – Boerderijen"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen) – Boerderijen"@nl ;
         min:adres "Steenpad 3" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:lemma "Boerderijen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/52473> ;
         min:provincie "Noord-Brabant" ;
+        min:rijksmonumentnummer "38970" ;
         min:soort "lemma" ;
         min:volgnummer 1653 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> ;
@@ -42325,7 +42419,9 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
             schema:CreativeWork ;
         rdfs:label "Woensdrecht-Hoogerheide"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -42347,7 +42443,9 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
         min:adres "Raadhuisstraat 132",
             "Raadhuisstraat 134" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -42368,7 +42466,9 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
         rdfs:label "Woensdrecht-Hoogerheide"@nl ;
         min:adres "Raadhuisstraat 78" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -42390,7 +42490,9 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
         min:adres "Antwerpsestraat 185",
             "Hildernisse 1" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -42410,7 +42512,9 @@ Wijksestraat 14 is een boerderij met een aan één kant opgelichte rieten kap. W
             schema:CreativeWork ;
         rdfs:label "Woensdrecht-Hoogerheide – Vestingwerken"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -51486,7 +51590,9 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/afbeelding/sten009monu02ill239> a schema:ImageObject ;
         rdfs:label "Giessen-Rijswijk, Wilhelminasluis (Giessen)"@nl ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
@@ -56334,11 +56440,13 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
         rdfs:label "Willemstad, Herv. kerk, plattegrond"@nl ;
         min:beeldcode "wille003" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         schema:caption "Willemstad, Herv. kerk, plattegrond"@nl ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02ill525.gif> ;
@@ -56349,11 +56457,13 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
         rdfs:label "Willemstad, Stad en vestingwerken"@nl ;
         min:beeldcode "wille003" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         schema:caption "Willemstad, Stad en vestingwerken"@nl ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02ill526.gif> ;
@@ -56364,11 +56474,13 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
         rdfs:label "Willemstad, Binnenstad 1Herv. kerk (zie p. 332) 2Stadhuis (p. 334) 3Mauritshuis of Gouvernementshuis (p. 334) 4Arsenaal (p. 335) 5Wachthuis (p. 335) 6windmolen d'Orangemolen (p. 335) 7Kruitmagazijn (p. 335)"@nl ;
         min:beeldcode "wille003" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         schema:caption "Willemstad, Binnenstad 1Herv. kerk (zie p. 332) 2Stadhuis (p. 334) 3Mauritshuis of Gouvernementshuis (p. 334) 4Arsenaal (p. 335) 5Wachthuis (p. 335) 6windmolen d'Orangemolen (p. 335) 7Kruitmagazijn (p. 335)"@nl ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02ill527.gif> ;
@@ -56379,11 +56491,13 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
         rdfs:label "Willemstad, Herv. kerk (1972)"@nl ;
         min:beeldcode "wille003" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         schema:caption "Willemstad, Herv. kerk (1972)"@nl ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02ill528.gif> ;
@@ -56394,11 +56508,13 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
         rdfs:label "Willemstad, Stadhuis"@nl ;
         min:beeldcode "wille003" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         schema:caption "Willemstad, Stadhuis"@nl ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02ill529.gif> ;
@@ -56422,11 +56538,13 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
         rdfs:label "Willemstad, Mauritshuis"@nl ;
         min:beeldcode "wille003" ;
         min:deel "Monumenten in Nederland. Noord-Brabant" ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
         schema:caption "Willemstad, Mauritshuis"@nl ;
         schema:contentUrl <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02ill530.gif> ;
@@ -59160,12 +59278,15 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0067> a min:Kern,
             schema:Chapter ;
         rdfs:label "Giessen - Rijswijk (gemeente Woudrichem)"@nl ;
+        min:gemeente "Altena" ;
         min:gemeenteInBoek "Woudrichem" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Altena> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Giessen - Rijswijk (gemeente Woudrichem)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Giessen - Rijswijk" ;
         min:provincie "Noord-Brabant" ;
+        min:woonplaats "Giessen" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0007> ;
         schema:name "Giessen - Rijswijk (gemeente Woudrichem)"@nl ;
         schema:position 67 ;
@@ -59497,12 +59618,15 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0185> a min:Kern,
             schema:Chapter ;
         rdfs:label "Vrijhoeve-capelle (gemeente Waalwijk)"@nl ;
+        min:gemeente "Waalwijk" ;
         min:gemeenteInBoek "Waalwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Waalwijk_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Vrijhoeve-capelle (gemeente Waalwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Vrijhoeve-capelle" ;
         min:provincie "Noord-Brabant" ;
+        min:woonplaats "Capelle" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0007> ;
         schema:name "Vrijhoeve-capelle (gemeente Waalwijk)"@nl ;
         schema:position 185 ;
@@ -59511,12 +59635,15 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0195> a min:Kern,
             schema:Chapter ;
         rdfs:label "Woensdrecht-Hoogerheide"@nl ;
+        min:gemeente "Woensdrecht" ;
         min:gemeenteInBoek "Woensdrecht-Hoogerheide" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Woensdrecht_(gemeente)> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Woensdrecht-Hoogerheide" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
         min:kern "Woensdrecht-Hoogerheide" ;
         min:provincie "Noord-Brabant" ;
+        min:woonplaats "Woensdrecht" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0007> ;
         schema:name "Woensdrecht-Hoogerheide"@nl ;
         schema:position 195 ;
@@ -61247,15 +61374,18 @@ Zwiers, L. (red.), Bouwkundig woordenboek, Amsterdam s.a."""@nl ;
 
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0194> a min:Kern,
             schema:Chapter ;
-        rdfs:label "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        rdfs:label "Willemstad (gemeente Zevenbergen)"@nl ;
+        min:gemeente "Moerdijk" ;
         min:gemeenteInBoek "Zevenbergen" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Moerdijk> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Noord-Brabant> ;
-        min:hoofdstuk "Steden, dorpen, monumenten › {problem}Willemstad (gemeente Zevenbergen)" ;
+        min:hoofdstuk "Steden, dorpen, monumenten › Willemstad (gemeente Zevenbergen)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01> ;
-        min:kern "{problem}Willemstad" ;
+        min:kern "Willemstad" ;
         min:provincie "Noord-Brabant" ;
+        min:woonplaats "Willemstad" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu02_01/hoofdstuk/0007> ;
-        schema:name "{problem}Willemstad (gemeente Zevenbergen)"@nl ;
+        schema:name "Willemstad (gemeente Zevenbergen)"@nl ;
         schema:position 194 ;
         schema:url <https://www.dbnl.org/tekst/sten009monu02_01/sten009monu02_01_0194.php> .
 

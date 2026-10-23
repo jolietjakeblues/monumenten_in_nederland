@@ -419,6 +419,51 @@
                   }
                 }
               },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#registernaam": {
+                "type": "text",
+                "analyzer": "nl_index",
+                "search_analyzer": "nl_zoeken",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  },
+                  "exact": {
+                    "type": "text",
+                    "analyzer": "nl_exact"
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#ingangNaam": {
+                "type": "text",
+                "analyzer": "nl_index",
+                "search_analyzer": "nl_zoeken",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  },
+                  "exact": {
+                    "type": "text",
+                    "analyzer": "nl_exact"
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#categoriepad": {
+                "type": "text",
+                "analyzer": "nl_index",
+                "search_analyzer": "nl_zoeken",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  },
+                  "exact": {
+                    "type": "text",
+                    "analyzer": "nl_exact"
+                  }
+                }
+              },
               "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#kern": {
                 "type": "text",
                 "analyzer": "nl_exact",
@@ -500,6 +545,76 @@
                 }
               },
               "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#beeldcode": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#levensdata": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#rol": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#register": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#registertekst": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#verwijzing": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#gemeenteInRegister": {
+                "type": "text",
+                "analyzer": "nl_exact",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#zie": {
                 "type": "text",
                 "analyzer": "nl_exact",
                 "fields": {
@@ -618,6 +733,10 @@
                 "type": "keyword",
                 "ignore_above": 1024
               },
+              "http://www w3 org/2004/02/skos/core#broader": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
               "https://schema org/isPartOf": {
                 "type": "keyword",
                 "ignore_above": 1024
@@ -654,11 +773,39 @@
                 "type": "keyword",
                 "ignore_above": 1024
               },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#vanIngang": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#passage": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#inHoofdstuk": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#opmaak": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#zekerheid": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#soortPlaats": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
               "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#volgnummer": {
                 "type": "integer",
                 "ignore_malformed": true
               },
               "https://schema org/position": {
+                "type": "integer",
+                "ignore_malformed": true
+              },
+              "https://linkeddata cultureelerfgoed nl/def/monumenten-in-nederland#aantalVermeldingen": {
                 "type": "integer",
                 "ignore_malformed": true
               }

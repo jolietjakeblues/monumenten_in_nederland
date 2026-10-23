@@ -11883,7 +11883,9 @@ In de Eerste Wereldoorlog was het klooster een toevluchtsoord voor de religieuze
             schema:CreativeWork ;
         rdfs:label "Eese en Eesveen (gemeente Steenwijk)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -11905,12 +11907,18 @@ In de Eerste Wereldoorlog was het klooster een toevluchtsoord voor de religieuze
         rdfs:label "Eese en Eesveen (gemeente Steenwijk)"@nl ;
         min:adres "Van Karnebeeklaan 2" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Eese en Eesveen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/77386>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/77387> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "529173",
+            "529174" ;
         min:soort "inleiding" ;
         min:volgnummer 460 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0035> ;
@@ -11926,13 +11934,17 @@ In de Eerste Wereldoorlog was het klooster een toevluchtsoord voor de religieuze
         rdfs:label "Eese en Eesveen (gemeente Steenwijk) – Landhuis De Hermanshoeve"@nl ;
         min:adres "Eese 7" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Eese en Eesveen" ;
         min:lemma "Landhuis De Hermanshoeve" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/77383> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "529177" ;
         min:soort "lemma" ;
         min:volgnummer 461 ;
         schema:image <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/afbeelding/sten009monu03ill176> ;
@@ -11948,7 +11960,9 @@ In de Eerste Wereldoorlog was het klooster een toevluchtsoord voor de religieuze
             schema:CreativeWork ;
         rdfs:label "Eese en Eesveen (gemeente Steenwijk) – Provinciegrenspalen"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -27504,7 +27518,9 @@ Inwendig is toen onder meer de schouw met schoorsteenstuk in de zaal aangebracht
             schema:CreativeWork ;
         rdfs:label "Wiene en Zeldam (gemeente Ambt Delden)"@nl ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Wiene en Zeldam (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -27529,13 +27545,21 @@ Inwendig is toen onder meer de schouw met schoorsteenstuk in de zaal aangebracht
             "Sluisstraat 52",
             "Ulkenweg 3" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Wiene en Zeldam (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Wiene en Zeldam" ;
         min:lemma "Boerderijen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/13176>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/26734>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/54230> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507807",
+            "7555",
+            "7556" ;
         min:soort "lemma" ;
         min:volgnummer 1039 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0106> ;
@@ -27552,13 +27576,27 @@ Inwendig is toen onder meer de schouw met schoorsteenstuk in de zaal aangebracht
         min:adres "Sluisstraat 51",
             "Sluisstraat 53-57" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Wiene en Zeldam (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Wiene en Zeldam" ;
         min:lemma "Jachtpalen" ;
+        min:noemtRijksmonument <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79443>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79444>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79445>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79446>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79447>,
+            <https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/79448> ;
         min:provincie "Overijssel" ;
+        min:rijksmonumentnummer "507775",
+            "507776",
+            "507777",
+            "507778",
+            "507779",
+            "507780" ;
         min:soort "lemma" ;
         min:volgnummer 1040 ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0106> ;
@@ -38214,7 +38252,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Eese, Huis De Eese"@nl ;
         min:beeldcode "eese_001" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -38229,7 +38269,9 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
         rdfs:label "Eese, Landhuis De Hermanshoeve"@nl ;
         min:beeldcode "eese_001" ;
         min:deel "Monumenten in Nederland. Overijssel" ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
@@ -44165,12 +44207,15 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0106> a min:Kern,
             schema:Chapter ;
         rdfs:label "Wiene en Zeldam (gemeente Ambt Delden)"@nl ;
+        min:gemeente "Hof van Twente" ;
         min:gemeenteInBoek "Ambt Delden" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Hof_van_Twente> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Wiene en Zeldam (gemeente Ambt Delden)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Wiene en Zeldam" ;
         min:provincie "Overijssel" ;
+        min:woonplaats "Zeldam" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0007> ;
         schema:name "Wiene en Zeldam (gemeente Ambt Delden)"@nl ;
         schema:position 106 ;
@@ -44842,12 +44887,15 @@ J. Kuyper, Atlas van Nederland en de Overzeesche Bezittingen, Leeuwarden 1865 (r
     <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0035> a min:Kern,
             schema:Chapter ;
         rdfs:label "Eese en Eesveen (gemeente Steenwijk)"@nl ;
+        min:gemeente "Steenwijkerland" ;
         min:gemeenteInBoek "Steenwijk" ;
+        min:heeftGemeente <http://standaarden.overheid.nl/owms/terms/Steenwijkerland> ;
         min:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Overijssel> ;
         min:hoofdstuk "Steden, dorpen, monumenten › Eese en Eesveen (gemeente Steenwijk)" ;
         min:inDeel <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01> ;
         min:kern "Eese en Eesveen" ;
         min:provincie "Overijssel" ;
+        min:woonplaats "Eese" ;
         schema:isPartOf <https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/sten009monu03_01/hoofdstuk/0007> ;
         schema:name "Eese en Eesveen (gemeente Steenwijk)"@nl ;
         schema:position 35 ;

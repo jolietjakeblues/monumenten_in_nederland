@@ -32,7 +32,8 @@
       <div class="examples"><span>Probeer:</span>
         <button type="button" data-example="molen">molen</button>
         <button type="button" data-example="kasteel AND gracht">kasteel AND gracht</button>
-        <button type="button" data-example="Cuypers">Cuypers</button>
+        <button type="button" data-example="Cuypers" data-veld="Register">Cuypers in de registers</button>
+        <button type="button" data-example="orgelbouwer" data-veld="Register">orgelbouwers</button>
         <button type="button" data-example="hofje" data-tekstsoort="lemma">hofjes</button>
         <button type="button" data-example="Oude Delft" data-veld="Adres">adres Oude Delft</button>
         <button type="button" data-example="watersnoodramp">watersnoodramp</button>
@@ -72,6 +73,8 @@
       <article id="hoofdstuk" class="hoofdstuk" aria-live="polite"></article>
     </div>
 
+    <section id="ingang" class="ingang" aria-live="polite" hidden></section>
+
     <details class="technical"><summary>Toon Elasticsearch-query</summary><h2>In gewone taal</h2><ul id="query-explain"><li>Er is nog geen zoekactie uitgevoerd.</li></ul><h2>JSON</h2><p>De laatste request naar de Elasticsearch-service <code>monumenten-in-nederland</code>.</p><pre id="query-json">Er is nog geen zoekactie uitgevoerd.</pre></details>
 
   <dialog id="help" aria-labelledby="help-title">
@@ -85,8 +88,10 @@
         <tr><td>Hoofdstuk</td><td>Hoofdstukken, secties en plaatsen, met een link naar de pagina op DBNL.</td></tr>
         <tr><td>Afbeelding</td><td>Foto’s, plattegronden en tekeningen uit het boek, met hun bijschrift.</td></tr>
         <tr><td>Term</td><td>De verklarende woordenlijst achter in het boek.</td></tr>
+        <tr><td>Architect of kunstenaar, Plaats (register), Kasteel of huis, Categorie</td><td>De registers van de hele serie, achter in deel 12 (Flevoland): bijna 7.800 architecten en kunstenaars, 3.600 plaatsen, 1.300 kastelen, buitenplaatsen en (land)huizen en 1.800 categorieën. Elke ingang linkt naar de passages in alle delen waar het register naar verwijst.</td></tr>
       </tbody>
     </table>
+    <p>Zoek in de registers met <strong>Zoek in: Register</strong>, bijvoorbeeld <button type="button" data-example="Cuypers" data-veld="Register">Cuypers</button> of <button type="button" data-example="tuinarchitect" data-veld="Register">tuinarchitect</button>. Bij een vermelding betekent vet dat het register de verwijzing vet drukt: de plaats waar iets uitgebreid aan bod komt. Een gestippelde link wijst naar de passages op die pagina, omdat de naam niet letterlijk in de tekst staat. In de leesweergave staat onder een passage welke registeringangen ernaar verwijzen.</p>
     <p>Adressen in de tekst zijn, waar dat lukte, gekoppeld aan het rijksmonument op dat adres. Die rijksmonumenten staan bij het resultaat en zijn ook doorzoekbaar op nummer (<strong>Zoek in: Rijksmonumentnummer</strong>).</p>
     <p><strong>Plaats in het boek</strong> is de plaats zoals het boek die indeelt, met de gemeente uit het jaar van uitgave. <strong>Gemeente (nu)</strong> is de huidige gemeente.</p>
     <h3>Nederlandse taal</h3>

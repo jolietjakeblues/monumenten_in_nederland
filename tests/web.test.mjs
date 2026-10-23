@@ -5,6 +5,7 @@ import {
   buildQuery, fields, soorten, soortVan, delen, deelUri, hoofdstukUri, queryFields, WEIGHT, toParams, fromParams, describe,
   buildToc, leesUris, buren, leespaginaVan, plaatsAfbeeldingen, lemmaBegin, afbeeldingUrl, registerUrl, dbnlUrl, veiligeZoekvraag,
   tocQuery, passagesQuery, KERN_TYPE, ID,
+  INGANGEN, ingangUri, ingangPad, leesLinkVermelding, perDeel, vermeldingenQuery, vermeldingenOpPassagesQuery, smallerQuery,
 } from '../web/search.js';
 
 const D = 'sten009monu10_01';
@@ -86,4 +87,34 @@ test('Lemmanaam vet, links alleen naar bekende plekken', () => {
   assert.equal(registerUrl('13481'), 'https://monumentenregister.cultureelerfgoed.nl/monumenten/13481');
   assert.equal(registerUrl('1; x'), null);
   assert.equal(dbnlUrl('javascript:alert(1)'), null);
+});
+
+test('Serieregisters: ingangen zijn doorzoekbaar, vermeldingen en lijsten niet', () => {
+  for (const soort of INGANGEN) assert.ok(Object.hasOwn(soorten, soort), soort);
+  const zoekbaar = buildQuery({ query: 'Cuypers', field: 'Register' }).query.bool.filter[0].terms['@id.soort'];
+  assert.ok(zoekbaar.includes('persoon') && !zoekbaar.includes('vermelding') && !zoekbaar.includes('lijst'));
+  assert.deepEqual(buildQuery({ query: 'x', field: 'Register' }).query.bool.must[0].query_string.fields, [fields.registernaam, fields.naam, fields.rol, fields.categoriepad]);
+  assert.ok('rol' in buildQuery().aggs);
+  const uri = ingangUri('persoon/cuypers-p-j-h-1827-1921');
+  assert.equal(soortVan(uri), 'persoon');
+  assert.equal(soortVan(ingangUri('vermelding/000001')), 'vermelding');
+  assert.equal(ingangPad(uri), 'persoon/cuypers-p-j-h-1827-1921');
+  assert.equal(ingangPad(`${ID}${D}/passage/00001`), null);
+});
+test('Serieregisters: URL, leeslink en groepering per deel', () => {
+  assert.deepEqual(fromParams('?ingang=persoon/cuypers-p-j-h-1827-1921'), { ingang: 'persoon/cuypers-p-j-h-1827-1921' });
+  assert.equal(fromParams('?ingang=vermelding/1').ingang, undefined);
+  assert.equal(fromParams('?ingang=persoon/../x').ingang, undefined);
+  const v = { [fields.inHoofdstuk]: [hoofdstukUri(D, '0030')], [fields.passage]: [`${ID}${D}/passage/00451`, `${ID}${D}/passage/00452`] };
+  assert.equal(leesLinkVermelding(v), `?lees=${D}/0030#p00451`);
+  assert.equal(leesLinkVermelding({}), null);
+  const groepen = perDeel([{ [fields.inDeel]: [deelUri('sten009monu10_01')] }, { [fields.inDeel]: [deelUri('sten009monu01_01')] }, { [fields.inDeel]: [deelUri('sten009monu10_01')] }]);
+  assert.deepEqual(groepen.map(([deel, lijst]) => [deel.slice(-16), lijst.length]), [['sten009monu01_01', 1], ['sten009monu10_01', 2]]);
+  assert.deepEqual(vermeldingenQuery(['a']).query.bool.filter[1], { terms: { [fields.vanIngang]: ['a'] } });
+  assert.deepEqual(vermeldingenOpPassagesQuery(['p']).query.bool.filter[1], { terms: { [fields.passage]: ['p'] } });
+  assert.deepEqual(smallerQuery('c').query, { term: { [fields.broader]: 'c' } });
+});
+test('Geen ontbrekende velden in de queries (undefined wordt null in JSON)', () => {
+  const zonderNull = body => !JSON.stringify(body).includes('null') && !JSON.stringify(body).includes('undefined');
+  for (const body of [buildQuery({ query: 'x' }), vermeldingenQuery(['a']), vermeldingenOpPassagesQuery(['p']), smallerQuery('c'), tocQuery(D), passagesQuery(['a'])]) assert.ok(zonderNull(body), JSON.stringify(body).slice(0, 200));
 });

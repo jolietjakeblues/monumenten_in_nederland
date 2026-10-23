@@ -13,16 +13,28 @@ export const fields = {
   tekst: SDO + 'text', naam: SDO + 'name', bijschrift: SDO + 'caption', uitleg: SDO + 'description',
   label: 'http://www w3 org/2000/01/rdf-schema#label', type: 'http://www w3 org/1999/02/22-rdf-syntax-ns#type',
   isPartOf: SDO + 'isPartOf', image: SDO + 'image', url: SDO + 'url', contentUrl: SDO + 'contentUrl',
-  inDefinedTermSet: SDO + 'inDefinedTermSet', position: SDO + 'position', pageStart: SDO + 'pageStart',
+  inDefinedTermSet: SDO + 'inDefinedTermSet', position: SDO + 'position', pageStart: SDO + 'pageStart', pageEnd: SDO + 'pageEnd',
   pagination: SDO + 'pagination', identifier: SDO + 'identifier', datePublished: SDO + 'datePublished',
   author: SDO + 'author', publisher: SDO + 'publisher',
   ...Object.fromEntries(['lemma', 'hoofdstuk', 'kern', 'alternatieveNaam', 'gemeente', 'gemeenteInBoek', 'provincie', 'deel',
-    'adres', 'rijksmonumentnummer', 'noemtRijksmonument', 'inDeel', 'soort', 'volgnummer'].map(naam => [naam, MIN + naam])),
+    'adres', 'rijksmonumentnummer', 'noemtRijksmonument', 'inDeel', 'soort', 'volgnummer',
+    // serieregisters (scripts/registers.py)
+    'registernaam', 'ingangNaam', 'categoriepad', 'levensdata', 'rol', 'register', 'verwijzing', 'vanIngang', 'passage',
+    'inHoofdstuk', 'opmaak', 'zekerheid', 'aantalVermeldingen', 'soortPlaats', 'gemeenteInRegister', 'zie'].map(naam => [naam, MIN + naam])),
+  broader: 'http://www w3 org/2004/02/skos/core#broader',
 };
 export const KERN_TYPE = 'https://linkeddata.cultureelerfgoed.nl/def/monumenten-in-nederland#Kern';
 
 // Soort uit de URI (= @id.soort in de index): …/id/<deel>/passage/00451 → passage, …/id/<deel> → deel.
-export const soorten = { passage: 'Tekst', hoofdstuk: 'Hoofdstuk', afbeelding: 'Afbeelding', term: 'Term' };
+export const soorten = {
+  passage: 'Tekst', hoofdstuk: 'Hoofdstuk', afbeelding: 'Afbeelding', term: 'Term',
+  // ingangen van de serieregisters: …/id/register/persoon/<slug> enzovoort
+  persoon: 'Architect of kunstenaar', plaats: 'Plaats (register)', object: 'Kasteel of huis', categorie: 'Categorie',
+};
+export const INGANGEN = ['persoon', 'plaats', 'object', 'categorie'];
+export const ID_REGISTER = 'https://linkeddata.cultureelerfgoed.nl/rce/monumenten-in-nederland/id/register/';
+export const ingangUri = pad => `${ID_REGISTER}${pad}`;
+export const ingangPad = uri => (String(uri ?? '').startsWith(ID_REGISTER) ? String(uri).slice(ID_REGISTER.length) : null);
 export const tekstsoorten = { lemma: 'Monument (lemma)', inleiding: 'Inleiding van een kern', alinea: 'Alinea', literatuur: 'Literatuur' };
 export const soortVan = uri => /\/id\/[^/]+\/([a-z]+)\/[^/]+$/.exec(String(uri ?? ''))?.[1] ?? (/\/id\/sten[^/]+$/.test(String(uri ?? '')) ? 'deel' : null);
 const SOORT_FIELD = '@id.soort';
@@ -35,8 +47,8 @@ export const deelUri = code => `${ID}${code}`;
 export const hoofdstukUri = (code, sleutel) => `${ID}${code}/hoofdstuk/${sleutel}`;
 
 // Zoekvelden. TEKST heeft Nederlandse taalverwerking (en .exact), KORT alleen kleine letters en accenten.
-const TEKST = ['tekst', 'naam', 'lemma', 'bijschrift', 'uitleg', 'hoofdstuk', 'label'];
-const KORT = ['kern', 'alternatieveNaam', 'gemeente', 'gemeenteInBoek', 'provincie', 'adres'];
+const TEKST = ['tekst', 'naam', 'lemma', 'bijschrift', 'uitleg', 'hoofdstuk', 'label', 'registernaam', 'categoriepad'];
+const KORT = ['kern', 'alternatieveNaam', 'gemeente', 'gemeenteInBoek', 'provincie', 'adres', 'rol', 'levensdata'];
 const NUMMER = ['rijksmonumentnummer'];
 const veld = list => list.map(naam => fields[naam]);
 export const searchFields = {
@@ -45,6 +57,7 @@ export const searchFields = {
   'Naam of lemma': veld(['naam', 'lemma', 'label']),
   Plaats: veld(['kern', 'alternatieveNaam', 'gemeente', 'gemeenteInBoek', 'provincie']),
   Adres: veld(['adres']),
+  Register: veld(['registernaam', 'naam', 'rol', 'categoriepad']),
   Rijksmonumentnummer: veld(NUMMER),
   // Zonder stemming, samenstellingen en synoniemen (subveld .exact; de korte velden zijn al exact).
   Exact: [...veld(TEKST).map(key => `${key}.exact`), ...veld([...KORT, ...NUMMER])],
@@ -60,7 +73,7 @@ export function queryFields(field) {
 // Highlights alleen op tekstvelden (niet op .exact, dat geeft dubbele fragmenten).
 const HIGHLIGHT = veld(['tekst', 'bijschrift', 'uitleg', 'naam', 'lemma', 'adres']);
 
-export const facets = { deel: 'Deel', soort: 'Soort', tekstsoort: 'Soort tekst', gemeente: 'Gemeente (nu)', kern: 'Plaats in het boek' };
+export const facets = { deel: 'Deel', soort: 'Soort', tekstsoort: 'Soort tekst', gemeente: 'Gemeente (nu)', kern: 'Plaats in het boek', rol: 'Rol (registers)' };
 const facetField = key => ({ soort: SOORT_FIELD, deel: fields.inDeel, tekstsoort: fields.soort }[key] ?? `${fields[key]}.keyword`);
 // Wat doorzocht wordt: geen deel- en seriedocumenten.
 const ZOEKBAAR = { terms: { [SOORT_FIELD]: Object.keys(soorten) } };
@@ -94,7 +107,7 @@ function validate({ query = '', field = DEFAULT_FIELD, filters = {}, page = 0, s
 }
 const facetAggs = filters => Object.fromEntries(Object.keys(facets).map(key => [key, {
   filter: { bool: { filter: filterClauses(filters, key) } },
-  aggs: { values: { terms: { field: facetField(key), size: key === 'kern' || key === 'gemeente' ? 300 : 20 } } },
+  aggs: { values: { terms: { field: facetField(key), size: ['kern', 'gemeente', 'rol'].includes(key) ? 300 : 20 } } },
 }]));
 // Zoeken (query) en filteren (post_filter) blijven gescheiden. Elke facet telt met de filters van de andere facetten.
 export function buildQuery(state = {}) {
@@ -146,6 +159,42 @@ export const termenQuery = uri => ({
   size: 2000, query: { bool: { filter: [{ term: { [SOORT_FIELD]: 'term' } }, { term: { [fields.inDefinedTermSet]: uri } }] } },
   sort: [{ [`${fields.naam}.keyword`]: { order: 'asc' } }],
 });
+// --- Serieregisters: ingangen en vermeldingen ----------------------------------------------------------------
+export const ingangQuery = uri => ({ size: 1, query: { term: { '@id.keyword': uri } } });
+// Vermeldingen van ingangen, per deel en op pagina.
+export const vermeldingenQuery = uris => ({
+  size: 5000, query: { bool: { filter: [{ term: { [SOORT_FIELD]: 'vermelding' } }, { terms: { [fields.vanIngang]: uris } }] } },
+  _source: ['@id', fields.vanIngang, fields.verwijzing, fields.deel, fields.inDeel, fields.pageStart, fields.pageEnd, fields.opmaak, fields.zekerheid, fields.kern, fields.passage, fields.inHoofdstuk],
+  sort: [{ [fields.inDeel]: { order: 'asc' } }, { [`${fields.pageStart}.getal`]: { order: 'asc' } }],
+});
+// Welke ingangen verwijzen naar deze passages (voor de leesweergave).
+export const vermeldingenOpPassagesQuery = uris => ({
+  size: 5000, query: { bool: { filter: [{ term: { [SOORT_FIELD]: 'vermelding' } }, { terms: { [fields.passage]: uris } }] } },
+  _source: [fields.vanIngang, fields.ingangNaam, fields.passage, fields.zekerheid],
+});
+// Subcategorieën van een categorie.
+export const smallerQuery = uri => ({
+  size: 500, query: { term: { [fields.broader]: uri } }, _source: ['@id', fields.naam, fields.aantalVermeldingen],
+  sort: [{ [`${fields.naam}.keyword`]: { order: 'asc' } }],
+});
+// Link naar de leesweergave voor een vermelding: het hoofdstuk van de eerste passage, met die passage als anker.
+export function leesLinkVermelding(source) {
+  const hoofdstuk = delen(first(source?.[fields.inHoofdstuk]));
+  const passage = delen(first(source?.[fields.passage]));
+  if (!hoofdstuk || hoofdstuk.soort !== 'hoofdstuk') return null;
+  return `?lees=${hoofdstuk.deel}/${hoofdstuk.sleutel}${passage?.soort === 'passage' ? `#p${passage.sleutel}` : ''}`;
+}
+// Vermeldingen per deel, in de volgorde van de delen.
+export function perDeel(vermeldingen) {
+  const groepen = new Map();
+  for (const v of vermeldingen) {
+    const deel = first(v[fields.inDeel]) ?? '';
+    if (!groepen.has(deel)) groepen.set(deel, []);
+    groepen.get(deel).push(v);
+  }
+  return [...groepen].sort(([a], [b]) => a.localeCompare(b));
+}
+
 // Namen van objecten waarnaar resultaten verwijzen (hoofdstuk van een afbeelding of term), in één request.
 export const byIdQuery = uris => ({
   size: Math.max(1, uris.length), query: { terms: { '@id.keyword': uris.length ? uris : ['-'] } },
@@ -243,6 +292,8 @@ export const ldUrl = uri => (String(uri ?? '').startsWith(ID) ? `https://linkedd
 // Lezen: ?lees=sten009monu10_01/0030 (en #p00451 voor een passage).
 const params = { deel: 'deel', soort: 'soort', tekstsoort: 'tekstsoort', gemeente: 'gemeente', kern: 'kern' };
 export const LEES = /^(sten[0-9a-z_]+)\/(\d{4}(?:-\d{2})*)$/;
+// Ingang van een serieregister: ?ingang=persoon/cuypers-p-j-h-…
+export const INGANG = /^(persoon|plaats|object|categorie)\/[a-z0-9-]{1,120}$/;
 export function toParams({ query = '', field = DEFAULT_FIELD, filters = {}, page = 0, sort = 'relevantie' }) {
   const result = new URLSearchParams();
   if (query.trim()) result.set('q', query.trim());
@@ -256,6 +307,8 @@ export function fromParams(search) {
   const input = new URLSearchParams(search);
   const lees = input.get('lees');
   if (lees && LEES.test(lees)) { const [, deel, sleutel] = LEES.exec(lees); return { lees: { deel, sleutel } }; }
+  const ingang = input.get('ingang');
+  if (ingang && INGANG.test(ingang)) return { ingang };
   const filters = {};
   for (const [key, name] of Object.entries(params)) {
     let list = input.getAll(name).filter(value => value && value.length <= 300).slice(0, MAX_VALUES);
@@ -275,7 +328,7 @@ export function fromParams(search) {
   return { state, active: [...input.keys()].some(key => ['q', ...Object.values(params)].includes(key)) };
 }
 // Uitleg van de zoekactie in gewone taal.
-const fieldText = { Alles: 'in alle tekst, namen, plaatsen en adressen', Tekst: 'in de lopende tekst, bijschriften en termen', 'Naam of lemma': 'in de namen van lemma’s en hoofdstukken', Plaats: 'in plaats en gemeente', Adres: 'in de adressen', Rijksmonumentnummer: 'in de gekoppelde rijksmonumentnummers', Exact: 'exact (zonder meervoud, samenstellingen en synoniemen)' };
+const fieldText = { Alles: 'in alle tekst, namen, plaatsen en adressen', Tekst: 'in de lopende tekst, bijschriften en termen', 'Naam of lemma': 'in de namen van lemma’s en hoofdstukken', Plaats: 'in plaats en gemeente', Adres: 'in de adressen', Register: 'in de serieregisters (namen, rollen en categorieën)', Rijksmonumentnummer: 'in de gekoppelde rijksmonumentnummers', Exact: 'exact (zonder meervoud, samenstellingen en synoniemen)' };
 export function describe({ query = '', field = DEFAULT_FIELD, filters = {}, sort = 'relevantie' }, labels = {}) {
   const lines = [];
   const trimmed = query.trim();

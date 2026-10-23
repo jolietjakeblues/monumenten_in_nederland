@@ -144,6 +144,17 @@ mark { background: var(--geel-licht); color: #000; font-weight: 700; padding: 0 
 .navigatie { display: flex; justify-content: space-between; gap: 12px; margin: 32px 0 8px; padding-top: 16px; border-top: 1px solid var(--grijs-3); font-size: .9rem; }
 .navigatie a { max-width: 48%; }
 
+/* Serieregisters: ingangen, vermeldingen en 'In de registers' bij een passage */
+:root { --persoon: #a90061; --plaats: #39870c; --object: #673327; --categorie: #94710a; }
+[data-soort=persoon] { --kleur: var(--persoon); } [data-soort=plaats] { --kleur: var(--plaats); }
+[data-soort=object] { --kleur: var(--object); } [data-soort=categorie] { --kleur: var(--categorie); }
+.vermeldingen { font-size: .9rem; line-height: 1.7; margin: 8px 0; }
+.vermeldingen a.pagina { text-decoration-style: dotted; }
+.vermeldingen-deel h4 { font-size: 1rem; margin: 16px 0 2px; }
+.ingang { margin-top: 16px; }
+.in-registers { font-size: .8rem; line-height: 1.6; color: var(--grijs-6); margin: -4px 0 12px; }
+.in-registers a { color: var(--kleur, var(--blauw)); }
+
 /* Technische sectie */
 .technical { border-top: 1px solid var(--grijs-3); padding: 20px 0; margin-top: 28px; }
 .technical summary { color: var(--blauw); }

@@ -63,6 +63,8 @@ WOONPLAATS_ALIAS = {
     'Baarle-Nassau/Baarle-Hertog': 'Baarle-Nassau',
     'Staphorst en Rouveen': 'Staphorst',
     'Winsum en Obergum': 'Winsum',
+    'Alphen aan de maas': 'Alphen',
+    'Sint Jacobiparochie': 'St.-Jacobiparochie',
 }
 
 # Plaatsen die sinds het verschijnen van een deel naar een andere provincie gingen: daar ook zoeken.
@@ -202,18 +204,41 @@ def gemeente_van(woonplaats, provincie_uri=None):
     }
 
 
+def woonplaatsvorm(naam):
+    """Naam om woonplaatsen te vergelijken: zonder provincie-achtervoegsel ('Bergen (NH)', 'Well L') en
+    met 'St.' als 'Sint' ('St.-Jacobiparochie')."""
+    naam = re.sub(r'^St\.?[- ]', 'Sint ', naam.strip())
+    naam = re.sub(r'\s*\(?\b(NH|ZH|NB|L|Gld|Gr|Fr|Dr|Ov|U|Z)\b\)?$', '', naam)
+    return vergelijkbaar(naam)
+
+
 def gespelde_woonplaats(naam, provincie_uri):
-    """De woonplaatsnaam zoals rce/erfgoed die spelt ('Etten-leur' → 'Etten-Leur'), of None."""
+    """De woonplaatsnaam zoals rce/erfgoed die spelt ('Etten-leur' → 'Etten-Leur', 'Bergen' → 'Bergen (NH)'),
+    of None."""
     r = es_zoek({
         'size': 0,
         'query': {'bool': {'must': [{'match_phrase': {CEO + 'woonplaatsnaam': naam}}],
                            'filter': [{'term': {CEO + 'heeftProvincie': provincie_uri}}]}},
         'aggs': {'w': {'terms': {'field': CEO + 'woonplaatsnaam.keyword', 'size': 20}}},
     })
-    return next((b['key'] for b in r['aggregations']['w']['buckets'] if vergelijkbaar(b['key']) == vergelijkbaar(naam)), None)
+    return next((b['key'] for b in r['aggregations']['w']['buckets'] if woonplaatsvorm(b['key']) == woonplaatsvorm(naam)), None)
 
 
-def woonplaats_info(namen, provincie_uri, cache):
+def gemeente_met_naam(gemeente, provincies):
+    """De OWMS-URI van een gemeente die nu nog zo heet, in een van de provincies, of None."""
+    r = es_zoek({
+        'size': 0,
+        'query': {'bool': {'filter': [
+            {'term': {CEO + 'gemeente.keyword': gemeente}},
+            {'terms': {CEO + 'heeftProvincie': provincies}},
+        ]}},
+        'aggs': {'g': {'terms': {'field': CEO + 'heeftGemeente', 'size': 1}}},
+    })
+    b = r['aggregations']['g']['buckets']
+    return b[0]['key'] if b else None
+
+
+def woonplaats_info(namen, provincie_uri, cache, gemeente_in_boek=None):
     """Huidige gemeente van een kern, afgeleid uit de objecten in rce/erfgoed binnen dezelfde provincie.
 
     namen: de kernnaam (of alias) en eventueel de alternatieve naam uit het boek, bijv. 'Akmarijp' en
@@ -222,6 +247,10 @@ def woonplaats_info(namen, provincie_uri, cache):
     sleutel = f'{provincie_uri}|{namen[0]}'
     if sleutel in cache.data:
         return cache.data[sleutel]
+    # Samengestelde namen: daarna de losse delen ('Eelde-Paterswolde', 'Termunten en Termunterzijl',
+    # 'Amsterdam-Sloten', 'Nederhemert-Noord').
+    delen = [d for d in re.split(r'\s+en\s+|\s*-\s*|/', namen[0]) if len(d) > 2]
+    namen = [*namen, *(delen if len(delen) > 1 else [])]
     # Per provincie de eerste naam die objecten heeft; daarna de provincie met de meeste objecten. Zo wint
     # Leerdam in Utrecht (honderden objecten) van een paar verouderde objecten met gemeente Zederik in
     # Zuid-Holland.
@@ -242,6 +271,13 @@ def woonplaats_info(namen, provincie_uri, cache):
             if landelijk['objecten'] and landelijk['gemeenten'] == 1:
                 info = landelijk
                 break
+    # Gehuchten die geen woonplaats in de BAG zijn (Teckop, Blauwkapel): de gemeente uit de kop van het
+    # boek, als er nu nog een gemeente met die naam is.
+    if not info['objecten'] and gemeente_in_boek:
+        uri = gemeente_met_naam(gemeente_in_boek, [provincie_uri, *PROVINCIE_OOK.get(provincie_uri, [])])
+        if uri:
+            info = {'woonplaats': None, 'objecten': 0, 'gemeenten': 1, 'gemeenteUri': uri, 'gemeente': gemeente_in_boek,
+                    'bron': 'gemeente in het boek'}
     cache.data[sleutel] = info
     return info
 
@@ -315,6 +351,7 @@ class Deel:
         self.laatste_kern = None
         self.kernen_ctx = None
         self.kernen_zonder = []
+        self.voorwerk_gehad = False
 
     # -- hulp
     def add(self, s, p, o):
@@ -355,10 +392,15 @@ class Deel:
 
     def kop(self, div):
         h = div.find('head')
-        return (platte_tekst(h), h.get('rend')) if h is not None else (None, None)
+        # DBNL-markeringen als '{problem}Willemstad' horen niet bij de kop
+        return (re.sub(r'\{[a-z]+\}', '', platte_tekst(h)).strip(), h.get('rend')) if h is not None else (None, None)
 
-    def div(self, div, ouder, sleutel, positie, pad, url, register=False):
+    def div(self, div, ouder, sleutel, positie, pad, url, register=False, ouder_ctx=None):
         titel, rend = self.kop(div)
+        # Een div zonder kop binnen een hoofdstuk hoort gewoon bij dat hoofdstuk.
+        if titel is None and ouder_ctx is not None:
+            self.inhoud(div, ouder_ctx, sleutel, vervolg=True)
+            return
         # Een div zonder kop tussen de kernen is een vervolg: een alinea van de vorige plaats (soms een
         # afbeelding), gevolgd door de volgende plaats. Geen eigen hoofdstuk.
         if titel is None and self.in_kernen and (self.laatste_kern or self.kernen_ctx):
@@ -372,7 +414,9 @@ class Deel:
         is_kern = self.in_kernen and rend == 'h3' and titel != KERNEN
 
         uri = URIRef(f'{self.base}/hoofdstuk/{sleutel}')
-        naam = titel or 'Voorwerk'
+        # Zonder kop: vooraan titelpagina en inhoud, achteraan (Gelderland) het colofon.
+        naam = titel or ('Colofon' if self.voorwerk_gehad else 'Voorwerk')
+        self.voorwerk_gehad = True
         self.add(uri, RDF.type, SDO.Chapter)
         self.lit(uri, SDO.name, naam, lang='nl')
         self.lit(uri, RDFS.label, naam, lang='nl')
@@ -417,8 +461,9 @@ class Deel:
             alternatief, gemeente = None, alternatief[len('gemeente '):]
         if alternatief and not alternatief[0].isupper():
             alternatief = None  # een toevoeging als '(stad)', geen andere naam
-        info = woonplaats_info([WOONPLAATS_ALIAS.get(kern, kern), alternatief], str(self.provincie_uri), self.wp_cache)
-        if not info['objecten']:
+        info = woonplaats_info([WOONPLAATS_ALIAS.get(kern, kern), alternatief], str(self.provincie_uri), self.wp_cache,
+                               gemeente or None)
+        if not info['gemeenteUri']:
             self.kernen_zonder.append(kern)
         return {'kern': kern, 'alternatief': alternatief, 'gemeenteInBoek': gemeente or kern,
                 'woonplaats': info['woonplaats'] if info['objecten'] else None,
@@ -441,8 +486,8 @@ class Deel:
                 sub += 1
                 self.sluit(huidig)
                 huidig = None
-                self.div(kind, ctx['uri'], f'{sleutel}-{sub:02d}', sub, ctx['pad'], ctx['url'], ctx['register'])
-            elif kind.tag == 'list' and ctx['titel'] == TERMEN:
+                self.div(kind, ctx['uri'], f'{sleutel}-{sub:02d}', sub, ctx['pad'], ctx['url'], ctx['register'], ctx)
+            elif kind.tag == 'list' and ctx['titel'].lower() == TERMEN.lower():  # Noord-Holland: '… Termen'
                 self.termen(kind, ctx)
             elif ctx['register'] or kind.tag == 'table':
                 self.blok(kind, ctx, None)  # alleen pagina's en afbeeldingen bijhouden
