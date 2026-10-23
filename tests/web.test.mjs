@@ -91,9 +91,9 @@ test('Lemmanaam vet, links alleen naar bekende plekken', () => {
 
 test('Serieregisters: ingangen zijn doorzoekbaar, vermeldingen en lijsten niet', () => {
   for (const soort of INGANGEN) assert.ok(Object.hasOwn(soorten, soort), soort);
-  const zoekbaar = buildQuery({ query: 'Cuypers', field: 'Register' }).query.bool.filter[0].terms['@id.soort'];
+  const zoekbaar = buildQuery({ query: 'Cuypers', field: 'Register' }).query.function_score.query.bool.filter[0].terms['@id.soort'];
   assert.ok(zoekbaar.includes('persoon') && !zoekbaar.includes('vermelding') && !zoekbaar.includes('lijst'));
-  assert.deepEqual(buildQuery({ query: 'x', field: 'Register' }).query.bool.must[0].query_string.fields, [fields.registernaam, fields.naam, fields.rol, fields.categoriepad]);
+  assert.deepEqual(buildQuery({ query: 'x', field: 'Register' }).query.function_score.query.bool.must[0].query_string.fields, [fields.registernaam, fields.naam, fields.rol, fields.categoriepad]);
   assert.ok('rol' in buildQuery().aggs);
   const uri = ingangUri('persoon/cuypers-p-j-h-1827-1921');
   assert.equal(soortVan(uri), 'persoon');
@@ -117,4 +117,11 @@ test('Serieregisters: URL, leeslink en groepering per deel', () => {
 test('Geen ontbrekende velden in de queries (undefined wordt null in JSON)', () => {
   const zonderNull = body => !JSON.stringify(body).includes('null') && !JSON.stringify(body).includes('undefined');
   for (const body of [buildQuery({ query: 'x' }), vermeldingenQuery(['a']), vermeldingenOpPassagesQuery(['p']), smallerQuery('c'), tocQuery(D), passagesQuery(['a'])]) assert.ok(zonderNull(body), JSON.stringify(body).slice(0, 200));
+});
+test('Ingangen met veel vermeldingen wegen zwaarder; andere documenten niet', () => {
+  const fs = buildQuery({ query: 'Cuypers', field: 'Register' }).query.function_score;
+  assert.equal(buildQuery({ query: 'molen' }).query.function_score, undefined);
+  assert.equal(fs.boost_mode, 'multiply');
+  assert.deepEqual(fs.functions[0].filter, { exists: { field: fields.aantalVermeldingen } });
+  assert.equal(fs.functions[0].field_value_factor.modifier, 'log2p');
 });

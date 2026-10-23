@@ -103,7 +103,18 @@ function validate({ query = '', field = DEFAULT_FIELD, filters = {}, page = 0, s
     if (list.length) clean[key] = [...new Set(list)];
   }
   const text = query.trim() ? { query_string: { query: veiligeZoekvraag(query.trim()), fields: queryFields(field) } } : { match_all: {} };
-  return { search: { bool: { must: [text], filter: [ZOEKBAAR] } }, filters: clean, field, page, sort };
+  const basis = { bool: { must: [text], filter: [ZOEKBAAR] } };
+  // Bij Zoek in: Register gaan ingangen met veel vermeldingen hoger (P.J.H. Cuypers, 183, boven een Cuyper met 1):
+  // de score maal log10(2 + aantal). Niet bij de andere velden, anders verdringen registercategorieën als
+  // 'korenmolens' de tekst bij een gewone zoekvraag als 'molen'.
+  const search = field !== 'Register' ? basis : {
+    function_score: {
+      query: basis,
+      functions: [{ filter: { exists: { field: fields.aantalVermeldingen } }, field_value_factor: { field: fields.aantalVermeldingen, modifier: 'log2p', missing: 0 } }],
+      boost_mode: 'multiply',
+    },
+  };
+  return { search, filters: clean, field, page, sort };
 }
 const facetAggs = filters => Object.fromEntries(Object.keys(facets).map(key => [key, {
   filter: { bool: { filter: filterClauses(filters, key) } },
@@ -167,9 +178,10 @@ export const vermeldingenQuery = uris => ({
   _source: ['@id', fields.vanIngang, fields.verwijzing, fields.deel, fields.inDeel, fields.pageStart, fields.pageEnd, fields.opmaak, fields.zekerheid, fields.kern, fields.passage, fields.inHoofdstuk],
   sort: [{ [fields.inDeel]: { order: 'asc' } }, { [`${fields.pageStart}.getal`]: { order: 'asc' } }],
 });
-// Welke ingangen verwijzen naar deze passages (voor de leesweergave).
+// Welke ingangen verwijzen naar deze passages (voor de leesweergave). Alleen als de naam in de passage zelf staat
+// (zekerheid 'naam'); bij 'pagina' kan het om een andere passage op dezelfde pagina gaan.
 export const vermeldingenOpPassagesQuery = uris => ({
-  size: 5000, query: { bool: { filter: [{ term: { [SOORT_FIELD]: 'vermelding' } }, { terms: { [fields.passage]: uris } }] } },
+  size: 5000, query: { bool: { filter: [{ term: { [SOORT_FIELD]: 'vermelding' } }, { terms: { [fields.passage]: uris } }, { term: { [fields.zekerheid]: 'naam' } }] } },
   _source: [fields.vanIngang, fields.ingangNaam, fields.passage, fields.zekerheid],
 });
 // Subcategorieën van een categorie.

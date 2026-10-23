@@ -123,9 +123,16 @@ verwijzing de passages op die pagina op. Uitvoer: `output/registers.trig`
   register zelf en is niet opgenomen.
 
 In de voorkant zijn ingangen te vinden met **Zoek in: Register** of het filter
-**Soort**. Elke ingang heeft een eigen pagina (`?ingang=persoon/…`) met alle
-vermeldingen per deel. In de leesweergave staat onder elke passage welke
-registeringangen ernaar verwijzen.
+**Soort**.
+- Bij *Register* wegen ingangen met veel vermeldingen zwaarder: score ×
+  log10(2 + aantal). Zo staat P.J.H. Cuypers (183) boven een Cuyper met 1
+  vermelding. Bij de andere zoekvelden niet, anders verdringen
+  registercategorieën als 'korenmolens' de tekst bij 'molen'.
+- Elke ingang heeft een eigen pagina (`?ingang=persoon/…`) met alle
+  vermeldingen per deel.
+- In de leesweergave staat onder een passage welke registeringangen ernaar
+  verwijzen. Alleen ingangen met zekerheid `naam` worden daar getoond, omdat
+  `pagina` ook een andere passage op dezelfde pagina kan zijn.
 
 ## Model
 
