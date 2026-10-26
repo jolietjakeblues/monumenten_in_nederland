@@ -127,6 +127,8 @@ mark { background: var(--geel-licht); color: #000; font-weight: 700; padding: 0 
 .hoofdstuk h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); line-height: 1.2; margin: 0 0 8px; }
 .hoofdstuk h3.sectie { font-size: 1.25rem; margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--geel); }
 .hoofdstuk .kop-meta { font-size: .9rem; color: var(--grijs-6); margin: 0 0 18px; }
+.hoofdstuk .kop-meta:has(+ .bron) { margin-bottom: 4px; }
+.hoofdstuk .bron { font-size: .85rem; color: var(--grijs-6); margin: 0 0 18px; }
 .passage { padding: 6px 0 6px 14px; margin: 0 0 6px -14px; border-left: 3px solid transparent; scroll-margin-top: 16px; }
 .passage:target, .passage.gekozen { border-left-color: var(--geel); background: var(--geel-zacht); }
 .passage p { margin: 0 0 12px; }

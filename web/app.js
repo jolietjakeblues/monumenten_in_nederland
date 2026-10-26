@@ -11,6 +11,8 @@ const DELEN = [
   ['05', 'Gelderland', 2000], ['06', 'Fryslân', 2000], ['07', 'Drenthe', 2001], ['08', 'Limburg', 2003],
   ['09', 'Zeeland', 2003], ['10', 'Zuid-Holland', 2004], ['11', 'Noord-Holland', 2006], ['12', 'Flevoland', 2006],
 ].map(([nr, provincie, jaar]) => ({ code: `sten009monu${nr}_01`, nr, provincie, jaar }));
+// Titel en auteurs per deel uit de dataset, voor de bronregel op de leespagina; gevuld door laadDelen.
+const boeken = new Map();
 const TERMEN = 'Verklaring van enige termen';
 const REGISTERS = ['Topografisch register', 'Register van personen', 'Registers serie', 'Serieregister topografie',
   'Serieregister van architecten en kunstenaars', 'Serieregister categorieën', 'Register op de categorieën'];
@@ -99,6 +101,10 @@ async function laadDelen() {
   try {
     const [result, steden] = await Promise.all([S.search(S.delenQuery()), S.search(S.kernenHoofdstukQuery())]);
     aanwezig = new Set(result.hits.hits.map(hit => S.delen(hit._source['@id'])?.deel).filter(Boolean));
+    for (const { _source: s } of result.hits.hits) {
+      const d = S.delen(s['@id']);
+      if (d) boeken.set(d.deel, { naam: first(s[fields.naam]), auteurs: [...values(s[fields.author])] });
+    }
     for (const hit of steden.hits.hits) { const d = S.delen(hit._source['@id']); if (d) plaatsen.set(d.deel, d.sleutel); }
   } catch (error) { fout(error.message); }
   // Beschikbare delen als kaart; de rest in één regel.
@@ -421,13 +427,25 @@ async function lezen(code, sleutel, hash) {
   const doel = hash && document.getElementById(hash);
   if (doel) { doel.classList.add('gekozen'); doel.scrollIntoView({ block: 'start' }); } else $('lezen').scrollIntoView({ block: 'start' });
 }
+// Bronvermelding zoals DBNL die vraagt, met de gebruiksvoorwaarden van het deel.
+function bronregel(code) {
+  const deel = DELEN.find(d => d.code === code);
+  const boek = boeken.get(code);
+  const url = S.gebruiksvoorwaardenUrl(code);
+  return h('p', { class: 'bron' }, 'Bron: ', h('em', { text: boek?.naam ?? `Monumenten in Nederland. ${deel?.provincie ?? code}` }),
+    deel ? ` (${deel.jaar})` : '', boek?.auteurs.length ? `, ${S.namenLijst(boek.auteurs)}` : '',
+    ', geraadpleegd via DBNL (KB, nationale bibliotheek).',
+    url && ' ', url && h('a', { href: url, target: '_blank', rel: 'noopener noreferrer', text: 'Auteursrecht en gebruiksvoorwaarden' }));
+}
 async function tekenHoofdstuk(code, toc, pagina) {
+  await delenGeladen;
   const kop = [
     pagina.ouderNode && h('p', { class: 'pad', text: [...(function* pad(n) { if (n.ouderNode) yield* pad(n.ouderNode); yield n.naam; })(pagina.ouderNode)].join(' › ') }),
     h('h2', { text: pagina.kern ?? pagina.naam }),
     h('p', { class: 'kop-meta' },
       pagina.isKern ? `Gemeente in het boek: ${pagina.gemeenteInBoek ?? pagina.kern}${pagina.gemeente ? ` · nu: ${pagina.gemeente}` : ''} · ` : '',
       S.dbnlUrl(pagina.url) && h('a', { href: S.dbnlUrl(pagina.url), target: '_blank', rel: 'noopener noreferrer', text: 'Deze pagina op DBNL' })),
+    bronregel(code),
   ];
   const { vorige, volgende } = S.buren(toc, pagina);
   const navigatie = h('nav', { class: 'navigatie', 'aria-label': 'Vorige en volgende' },
@@ -487,7 +505,7 @@ async function tekenHoofdstuk(code, toc, pagina) {
     telling = `${passages.length} ${passages.length === 1 ? 'tekstdeel' : 'tekstdelen'}, ${beelden.hits.hits.length} ${beelden.hits.hits.length === 1 ? 'afbeelding' : 'afbeeldingen'}`;
     if (!passages.length && !kernen.length) inhoudBlokken.push(h('p', { class: 'empty', text: 'Bij dit hoofdstuk staat geen tekst in de dataset.' }));
   }
-  $('hoofdstuk').replaceChildren(...kop, ...inhoudBlokken, navigatie);
+  $('hoofdstuk').replaceChildren(...kop.filter(Boolean), ...inhoudBlokken, navigatie);
   $('status').textContent = `${pagina.kern ?? pagina.naam}${telling ? `: ${telling}` : ''}`;
 }
 
@@ -521,5 +539,5 @@ document.querySelectorAll('[data-help]').forEach(knop => knop.addEventListener('
   document.getElementById(`help-${knop.dataset.help}`)?.scrollIntoView({ block: 'start' });
 }));
 
-laadDelen();
+const delenGeladen = laadDelen();
 route();
