@@ -293,6 +293,10 @@ export function safeUrl(value) {
   try { const url = new URL(value); return url.protocol === 'https:' ? url.href : null; } catch { return null; }
 }
 export const dbnlUrl = value => { const url = safeUrl(value); return url && new URL(url).hostname === 'www.dbnl.org' ? url : null; };
+// DBNL-pagina 'Auteursrecht en gebruiksvoorwaarden' van een deel (sten009monu12_01 → id=sten009monu12).
+export const gebruiksvoorwaardenUrl = code => (/^sten009monu\d{2}_01$/.test(String(code)) ? `https://www.dbnl.org/titels/gebruiksvoorwaarden.php?id=${code.slice(0, -3)}` : null);
+// Namen als 'A, B en C'.
+export const namenLijst = namen => (namen.length > 1 ? `${namen.slice(0, -1).join(', ')} en ${namen.at(-1)}` : namen[0] ?? '');
 export const registerUrl = nummer => (/^\d{1,7}$/.test(String(nummer)) ? `https://monumentenregister.cultureelerfgoed.nl/monumenten/${nummer}` : null);
 export const afbeeldingUrl = source => dbnlUrl(first(source?.[fields.contentUrl])) ?? (() => {
   const d = delen(source?.['@id']);

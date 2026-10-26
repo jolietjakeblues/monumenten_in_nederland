@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   buildQuery, fields, soorten, soortVan, delen, deelUri, hoofdstukUri, queryFields, WEIGHT, toParams, fromParams, describe,
-  buildToc, leesUris, buren, leespaginaVan, plaatsAfbeeldingen, lemmaBegin, afbeeldingUrl, registerUrl, dbnlUrl, veiligeZoekvraag,
+  buildToc, leesUris, buren, leespaginaVan, plaatsAfbeeldingen, lemmaBegin, afbeeldingUrl, registerUrl, dbnlUrl, gebruiksvoorwaardenUrl, namenLijst, veiligeZoekvraag,
   tocQuery, passagesQuery, KERN_TYPE, ID,
   INGANGEN, ingangUri, ingangPad, leesLinkVermelding, perDeel, vermeldingenQuery, vermeldingenOpPassagesQuery, smallerQuery,
 } from '../web/search.js';
@@ -87,6 +87,11 @@ test('Lemmanaam vet, links alleen naar bekende plekken', () => {
   assert.equal(registerUrl('13481'), 'https://monumentenregister.cultureelerfgoed.nl/monumenten/13481');
   assert.equal(registerUrl('1; x'), null);
   assert.equal(dbnlUrl('javascript:alert(1)'), null);
+  assert.equal(gebruiksvoorwaardenUrl('sten009monu12_01'), 'https://www.dbnl.org/titels/gebruiksvoorwaarden.php?id=sten009monu12');
+  assert.equal(gebruiksvoorwaardenUrl('x'), null);
+  assert.equal(namenLijst(['Chris Kolman', 'Ronald Stenvert']), 'Chris Kolman en Ronald Stenvert');
+  assert.equal(namenLijst(['A', 'B', 'C']), 'A, B en C');
+  assert.equal(namenLijst([]), '');
 });
 
 test('Serieregisters: ingangen zijn doorzoekbaar, vermeldingen en lijsten niet', () => {
